@@ -15,6 +15,9 @@ class Job {
     var name: String
     var photo: UIImage?
     var rating: Int
+    //var reviews: Review?
+    //var location: Location
+    
     
     //MARK: Initialization
     

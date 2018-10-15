@@ -9,15 +9,17 @@
 
 import UIKit
 
-class JobTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class JobViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
        
     @IBOutlet weak var tableView: UITableView!
     
+    
     var jobs = [Job]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.dataSource = self
+        tableView.dataSource = self
+        tableView.delegate = self
         loadJobs()
     }
 
@@ -62,15 +64,15 @@ class JobTableViewController: UIViewController, UITableViewDataSource, UITableVi
         let photo3 = photo1
         
         //create sample jobs
-        guard let job1 = Job(name: "Caprese Salad", photo: photo1, rating: 4) else {
+        guard let job1 = Job(name: "Naimish", photo: photo1, rating: 4) else {
             fatalError("Unable to instantiate meal1")
         }
         
-        guard let job2 = Job(name: "Chicken and Potatoes", photo: photo2, rating: 5) else {
+        guard let job2 = Job(name: "Sheen", photo: photo2, rating: 3) else {
             fatalError("Unable to instantiate meal2")
         }
         
-        guard let job3 = Job(name: "Pasta with Meatballs", photo: photo3, rating: 3) else {
+        guard let job3 = Job(name: "Joe", photo: photo3, rating: 5) else {
             fatalError("Unable to instantiate meal2")
         }
         

@@ -60,11 +60,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobTableViewCell" rowHeight="57" id="qgG-C0-KX6" customClass="MapTableViewCell" customModule="SnowShoveling" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="57"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobTableViewCell" rowHeight="70" id="qgG-C0-KX6" customClass="MapTableViewCell" customModule="SnowShoveling" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qgG-C0-KX6" id="bpT-63-Gbo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="gIS-Aw-G1L">
@@ -93,7 +93,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7i-gC-8k0">
-                                                    <rect key="frame" x="315" y="5" width="49" height="21"/>
+                                                    <rect key="frame" x="315" y="5" width="49" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -115,13 +115,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="distanceLabel" destination="v7i-gC-8k0" id="bK4-8x-daO"/>
-                                            <outlet property="drivewayType" destination="MnJ-nf-iIA" id="ebi-3N-IRE"/>
-                                            <outlet property="drivewayTypeLabel" destination="MnJ-nf-iIA" id="GzH-od-wnJ"/>
-                                            <outlet property="nameLabel" destination="fdg-gz-jZL" id="Fu2-iE-X1q"/>
-                                            <outlet property="photoImageView" destination="gIS-Aw-G1L" id="2WH-iA-vQc"/>
-                                            <outlet property="ratingControl" destination="bg3-D0-qwc" id="2Cw-Nm-7Cf"/>
-                                            <outlet property="timeLabel" destination="ZsI-Qa-yXY" id="aYh-hP-4oh"/>
+                                            <outlet property="nameLabel" destination="fdg-gz-jZL" id="vdu-qF-hz2"/>
+                                            <outlet property="photoImageView" destination="gIS-Aw-G1L" id="oe3-Md-fEk"/>
+                                            <outlet property="ratingControl" destination="bg3-D0-qwc" id="rpI-ui-6AE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -142,7 +138,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="table" destination="zTS-8e-Fph" id="zo2-iS-4Fv"/>
                         <outlet property="tableView" destination="zTS-8e-Fph" id="HoJ-S0-lmj"/>
                     </connections>
                 </viewController>
@@ -150,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="1741.5999999999999" y="474.51274362818594"/>
         </scene>
-        <!--View Controller-->
+        <!--Job View Controller-->
         <scene sceneID="jFG-qE-Qh9">
             <objects>
-                <viewController id="cp3-ru-8DB" sceneMemberID="viewController">
+                <viewController id="cp3-ru-8DB" customClass="JobViewController" customModule="SnowShoveling" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YHS-gb-AaP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,6 +213,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gs6-hG-mnZ"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ugW-rX-xgJ" id="YM7-Xb-c6C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zo5-nu-jhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,7 +289,7 @@
         <!--Third-->
         <scene sceneID="q3o-1Z-ru1">
             <objects>
-                <viewController id="NcX-6y-apr" customClass="ThirdViewController" sceneMemberID="viewController">
+                <viewController id="NcX-6y-apr" customClass="ThirdViewController" customModule="SnowShoveling" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dnO-Yb-pLA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

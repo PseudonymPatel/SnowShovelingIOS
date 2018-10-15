@@ -71,6 +71,7 @@
 			children = (
 				D3FE3A32216BE486004C0140 /* Job.swift */,
 				D36C930121613ECC00708ECF /* AppDelegate.swift */,
+				D3FE3A2F216BE246004C0140 /* JobViewController.swift */,
 				D3FE3A31216BE25E004C0140 /* SecondTab */,
 				D36C930321613ECC00708ECF /* FirstViewController.swift */,
 				D36C93172161444100708ECF /* ThirdViewController.swift */,
@@ -88,7 +89,6 @@
 				D3EFAE33216BA71400FE98C1 /* RatingControlEditable.swift */,
 				D3A4B452216AC5E500C63887 /* FilterScreenViewController.swift */,
 				D3EFAE31216BA46200FE98C1 /* MapTableViewCell.swift */,
-				D3FE3A2F216BE246004C0140 /* JobViewController.swift */,
 			);
 			path = SecondTab;
 			sourceTree = "<group>";
