@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -118,6 +119,10 @@
                                             <outlet property="nameLabel" destination="fdg-gz-jZL" id="vdu-qF-hz2"/>
                                             <outlet property="photoImageView" destination="gIS-Aw-G1L" id="oe3-Md-fEk"/>
                                             <outlet property="ratingControl" destination="bg3-D0-qwc" id="rpI-ui-6AE"/>
+                                            <segue destination="cp3-ru-8DB" kind="presentation" identifier="showDetail" id="J0J-BQ-z2Z">
+                                                <segue key="commit" inheritsFrom="parent" id="Fd8-4y-exT"/>
+                                                <segue key="preview" inheritsFrom="commit" id="1rz-TJ-p4d"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -145,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="1741.5999999999999" y="474.51274362818594"/>
         </scene>
-        <!--Job View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="jFG-qE-Qh9">
             <objects>
-                <viewController id="cp3-ru-8DB" customClass="JobViewController" customModule="SnowShoveling" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cp3-ru-8DB" customClass="DetailViewController" customModule="SnowShoveling" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YHS-gb-AaP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,12 +189,42 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="208" id="mwm-jT-RbZ">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="208"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reviewCells" rowHeight="173" id="mwm-jT-RbZ">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="173"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mwm-jT-RbZ" id="f9U-c4-Dyg">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="207.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="172.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of Reviewer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoR-sc-Xh6">
+                                                    <rect key="frame" x="54" y="11" width="139" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="ygW-Ue-vuq">
+                                                    <rect key="frame" x="15" y="11" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Snc-bf-pf4" customClass="RatingControlEditable" customModule="SnowShoveling" customModuleProvider="target">
+                                                    <rect key="frame" x="194" y="11" width="134" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="2LP-2H-D55">
+                                                    <rect key="frame" x="14" y="54" width="329" height="108"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -372,4 +407,7 @@
         <image name="second" width="30" height="30"/>
         <image name="third" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="J0J-BQ-z2Z"/>
+    </inferredMetricsTieBreakers>
 </document>

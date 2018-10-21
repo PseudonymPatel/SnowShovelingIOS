@@ -5,7 +5,7 @@
 //  Created by Sheen Patel on 10/8/18.
 //  Copyright © 2018 Sheen Patel. All rights reserved.
 //
-// This view controller controls the entire table that each job uses
+// This view controller controls the entire table that each job uses + map
 
 import UIKit
 

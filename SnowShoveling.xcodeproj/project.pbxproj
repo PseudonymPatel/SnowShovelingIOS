@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D344B13D217CDC9B00AE7C02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */; };
 		D36C930221613ECC00708ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C930121613ECC00708ECF /* AppDelegate.swift */; };
 		D36C930421613ECC00708ECF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C930321613ECC00708ECF /* FirstViewController.swift */; };
 		D36C930921613ECC00708ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36C930721613ECC00708ECF /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D36C92FE21613ECC00708ECF /* SnowShoveling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowShoveling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36C930121613ECC00708ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36C930321613ECC00708ECF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -86,9 +88,10 @@
 		D3FE3A31216BE25E004C0140 /* SecondTab */ = {
 			isa = PBXGroup;
 			children = (
-				D3EFAE33216BA71400FE98C1 /* RatingControlEditable.swift */,
+				D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */,
 				D3A4B452216AC5E500C63887 /* FilterScreenViewController.swift */,
 				D3EFAE31216BA46200FE98C1 /* MapTableViewCell.swift */,
+				D3EFAE33216BA71400FE98C1 /* RatingControlEditable.swift */,
 			);
 			path = SecondTab;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D344B13D217CDC9B00AE7C02 /* DetailViewController.swift in Sources */,
 				D3EFAE34216BA71400FE98C1 /* RatingControlEditable.swift in Sources */,
 				D3FE3A30216BE246004C0140 /* JobViewController.swift in Sources */,
 				D36C930221613ECC00708ECF /* AppDelegate.swift in Sources */,
@@ -326,7 +330,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.patel.SnowShoveling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -344,7 +348,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.patel.SnowShoveling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -1,7 +1,7 @@
 This is a file of everything that needs to be done (that has been started)
 
 1. Map -- backend and frontend
-2. Ratings -- need a non-editable rating class, backend
+2. Ratings -- need a non-editable rating class, backend --> Decided to make non-interactable rating
 
 3. user Database!!
 4. currently working on the tables in the map screen. --> something in the tables won't work :/
