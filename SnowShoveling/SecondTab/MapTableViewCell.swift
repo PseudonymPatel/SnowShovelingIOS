@@ -8,6 +8,7 @@
 //This script controls each individual cell in the Job Table (jobTableViewController.swift)
 
 import UIKit
+import CoreLocation
 
 class MapTableViewCell: UITableViewCell {
 

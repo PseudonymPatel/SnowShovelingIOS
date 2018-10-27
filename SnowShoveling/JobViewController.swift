@@ -8,6 +8,7 @@
 // This view controller controls the entire table that each job uses + map
 
 import UIKit
+import CoreLocation
 
 class JobViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -58,21 +59,23 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
 
     private func loadJobs() {
         
+        //create sample locaton data
+        let sampleLocation:CLPlacemark = CLPlacemark.init()
         //load some example photos for below
         let photo1 = #imageLiteral(resourceName: "defaultProfilePic")
         let photo2 = photo1
         let photo3 = photo1
         
         //create sample jobs
-        guard let job1 = Job(name: "Naimish", photo: photo1, rating: 4) else {
+        guard let job1 = Job(name: "Naimish", photo: photo1, rating: 4, location: sampleLocation) else {
             fatalError("Unable to instantiate meal1")
         }
         
-        guard let job2 = Job(name: "Sheen", photo: photo2, rating: 3) else {
+        guard let job2 = Job(name: "Sheen", photo: photo2, rating: 3, location: sampleLocation) else {
             fatalError("Unable to instantiate meal2")
         }
         
-        guard let job3 = Job(name: "Joe", photo: photo3, rating: 5) else {
+        guard let job3 = Job(name: "Joe", photo: photo3, rating: 5, location: sampleLocation) else {
             fatalError("Unable to instantiate meal2")
         }
         

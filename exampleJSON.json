@@ -1,0 +1,16 @@
+{
+    "userID": 00000,
+    "ratingAvg": 3.2,
+    "ratings": [
+        {
+            "title": "Example Title",
+            "ratingNum": 1,
+            "description": "Example Description"
+        },
+        {
+            "title": "Example Title 2",
+            "ratingNum": "2",
+            "description": "Example Description 2"
+        }
+    ]
+}
