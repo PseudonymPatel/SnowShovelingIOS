@@ -13,6 +13,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        /*
         let jsonstuff = """
                         {
                             "userID": 00000,
@@ -34,6 +35,7 @@ class FirstViewController: UIViewController {
         let decoder = JSONDecoder()
         let decodedExample = try? decoder.decode(Rating.self, from: jsonstuff)
         print(decodedExample)
+        */
     }
 
     override func didReceiveMemoryWarning() {

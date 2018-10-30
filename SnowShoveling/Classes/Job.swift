@@ -21,44 +21,51 @@
  
  */
 
-
-
 import UIKit
 import CoreLocation
 
-class Job {
+struct Job {
     
     //Properties
+    var jobID:Int
+    var userID:Int
     
-    var name: String
-    var photo: UIImage?
-    var rating: Int
-    //var reviews: Review?
-    var location: CLPlacemark?
+    var location: CLPlacemark //will have to create from basic data.
+    //lat
+    //long
+    //street address (can be created from lat and long
+    //
+    
+    var drivewayType:String?
+    var date:Date
+    var note:String?
     
     
     //Initialization
     
-    init?(name: String, photo: UIImage?, rating: Int, location: CLPlacemark) {
-        
-        // Initialization should fail if there is no name or if the rating is negative.
-        // The name must not be empty
-        guard !name.isEmpty else {
-            return nil
-        }
-        
-        // The rating must be between 0 and 5 inclusively
-        guard (rating >= 0) && (rating <= 5) else {
-            return nil
-        }
+    init?(jobID:Int, userID:Int, location: CLPlacemark, date:Date, note:String?, drivewayType:String?) {
         
         // Initialize stored properties.
-        self.name = name
-        self.photo = photo
-        self.rating = rating
+        self.jobID = jobID
+        self.userID = userID
         self.location = location
+        self.date = date
+        self.note = note
+        self.drivewayType = drivewayType
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
