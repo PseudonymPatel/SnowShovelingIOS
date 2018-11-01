@@ -10,6 +10,17 @@ import UIKit
 
 class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
 
+    //user interface labels, user interface stuff.
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var userProfilePic: UIImageView?
+    @IBOutlet weak var distanceLabel: UIButton!
+    @IBOutlet weak var rating: RatingControlEditable!
+    @IBOutlet weak var ratingsTable: UITableView!
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

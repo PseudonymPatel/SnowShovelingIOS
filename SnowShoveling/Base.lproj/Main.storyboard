@@ -116,12 +116,10 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="distanceLabel" destination="v7i-gC-8k0" id="9yN-9Z-yzN"/>
-                                            <outlet property="drivewayTypeLabel" destination="MnJ-nf-iIA" id="16g-Bh-RzO"/>
+                                            <outlet property="drivewayTypeLabel" destination="MnJ-nf-iIA" id="4JJ-Nb-6LF"/>
                                             <outlet property="nameLabel" destination="fdg-gz-jZL" id="vdu-qF-hz2"/>
                                             <outlet property="photoImageView" destination="gIS-Aw-G1L" id="oe3-Md-fEk"/>
                                             <outlet property="ratingControl" destination="bg3-D0-qwc" id="rpI-ui-6AE"/>
-                                            <outlet property="timeLabel" destination="ZsI-Qa-yXY" id="0lX-sy-HCt"/>
                                             <segue destination="cp3-ru-8DB" kind="presentation" identifier="showDetail" id="J0J-BQ-z2Z">
                                                 <segue key="commit" inheritsFrom="parent" id="Fd8-4y-exT"/>
                                                 <segue key="preview" inheritsFrom="commit" id="1rz-TJ-p4d"/>
@@ -247,12 +245,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Accept Job"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Di-V1-iZa">
+                                <rect key="frame" x="16" y="20" width="44" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="cp3-ru-8DB" eventType="touchUpInside" id="eVh-Eu-o77"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gs6-hG-mnZ"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="ugW-rX-xgJ" id="YM7-Xb-c6C"/>
+                        <outlet property="distanceLabel" destination="Vea-hX-F0z" id="qP7-6r-6SK"/>
+                        <outlet property="nameLabel" destination="Cie-y4-yZe" id="OmN-33-b6c"/>
+                        <outlet property="rating" destination="6bg-fW-VPP" id="HSc-Oa-apw"/>
+                        <outlet property="ratingsTable" destination="ugW-rX-xgJ" id="mb6-Fj-XUU"/>
+                        <outlet property="userProfilePic" destination="Uvq-X7-0PQ" id="UgU-NR-Krz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zo5-nu-jhm" userLabel="First Responder" sceneMemberID="firstResponder"/>

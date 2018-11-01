@@ -39,6 +39,9 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         return jobs.count
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetail", sender: self)
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "JobTableViewCell"
