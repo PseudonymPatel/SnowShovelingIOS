@@ -29,29 +29,35 @@ struct Job {
     //Properties
     var jobID:Int
     var userID:Int
-    
     var location: CLPlacemark //will have to create from basic data.
-    //lat
-    //long
-    //street address (can be created from lat and long
-    //
-    
     var drivewayType:String?
     var date:Date
     var note:String?
     
+    //user related quick info (all but detailed ratings)
+    var name:String
+    var profilePic:UIImage
+    var ratingAvg:Int
+    
     
     //Initialization
     
-    init?(jobID:Int, userID:Int, location: CLPlacemark, date:Date, note:String?, drivewayType:String?) {
+    init?(jobID:Int, userID:Int, loc:(Double,Double), date:Date, note:String?, drivewayType:String?, name:String) {
         
         // Initialize stored properties.
         self.jobID = jobID
         self.userID = userID
-        self.location = location
+        //var latLong:CLLocation = CLLocation.init(latitude: loc.0, longitude: loc.1)
+        //self.location = CLPlacemark(location: latLong, name: "Location", postalAddress:nil)
+        self.location = CLPlacemark.init()
         self.date = date
         self.note = note
         self.drivewayType = drivewayType
+        
+        //placeholder stuff for now
+        self.name = name
+        self.profilePic = #imageLiteral(resourceName: "defaultProfilePic")
+        self.ratingAvg = 3
     }
     
 }

@@ -16,7 +16,7 @@ class MapTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var ratingControl: RatingControlEditable!
-    //@IBOutlet var drivewayTypeLabel: UILabel!
+    @IBOutlet var drivewayTypeLabel: UILabel!
     //@IBOutlet var timeLabel: UILabel!
     //@IBOutlet var distanceLabel: UIButton!
     

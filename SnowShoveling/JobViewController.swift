@@ -51,8 +51,9 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
 
         // Configure the cell...
         cell.nameLabel.text = job.name
-        cell.photoImageView.image = job.photo
-        cell.ratingControl.rating = job.rating
+        cell.photoImageView.image = #imageLiteral(resourceName: "defaultProfilePic") //TODO: change to real thing, placeholder until database works
+        cell.ratingControl.rating = job.ratingAvg
+        cell.drivewayTypeLabel.text = (job.drivewayType != nil) ? job.drivewayType : "not listed"
         
         return cell
     }
@@ -60,23 +61,23 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
     private func loadJobs() {
         
         //create sample locaton data
-        let sampleLocation:CLPlacemark = CLPlacemark.init()
+        //let sampleLocation:CLPlacemark = CLPlacemark.init()
         //load some example photos for below
-        let photo1 = #imageLiteral(resourceName: "defaultProfilePic")
-        let photo2 = photo1
-        let photo3 = photo1
+        //let photo1 = #imageLiteral(resourceName: "defaultProfilePic")
+        //let photo2 = photo1
+        //let photo3 = photo1
         
         //create sample jobs
-        guard let job1 = Job(name: "Naimish", photo: photo1, rating: 4, location: sampleLocation) else {
-            fatalError("Unable to instantiate meal1")
+        guard let job1 = Job(jobID:1, userID:1, loc:(10.0,10.0), date:Date(), note:nil, drivewayType:"asphalt", name:"Naimish") else {
+            fatalError("Unable to instantiate job1")
         }
         
-        guard let job2 = Job(name: "Sheen", photo: photo2, rating: 3, location: sampleLocation) else {
-            fatalError("Unable to instantiate meal2")
+        guard let job2 = Job(jobID:2, userID:1, loc:(10.0,10.0), date:Date(), note:nil, drivewayType:"pebble", name:"Joe") else {
+            fatalError("Unable to instantiate job2")
         }
         
-        guard let job3 = Job(name: "Joe", photo: photo3, rating: 5, location: sampleLocation) else {
-            fatalError("Unable to instantiate meal2")
+        guard let job3 = Job(jobID:3, userID:1, loc:(10.0,10.0), date:Date(), note:"no note", drivewayType:"really long obscure type", name:"ANDFSLKSKKDKSJDDLSDFJDKLONGNAME") else {
+            fatalError("Unable to instantiate job3")
         }
         
         jobs += [job1, job2, job3]

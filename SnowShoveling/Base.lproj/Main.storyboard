@@ -116,9 +116,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="distanceLabel" destination="v7i-gC-8k0" id="9yN-9Z-yzN"/>
+                                            <outlet property="drivewayTypeLabel" destination="MnJ-nf-iIA" id="16g-Bh-RzO"/>
                                             <outlet property="nameLabel" destination="fdg-gz-jZL" id="vdu-qF-hz2"/>
                                             <outlet property="photoImageView" destination="gIS-Aw-G1L" id="oe3-Md-fEk"/>
                                             <outlet property="ratingControl" destination="bg3-D0-qwc" id="rpI-ui-6AE"/>
+                                            <outlet property="timeLabel" destination="ZsI-Qa-yXY" id="0lX-sy-HCt"/>
                                             <segue destination="cp3-ru-8DB" kind="presentation" identifier="showDetail" id="J0J-BQ-z2Z">
                                                 <segue key="commit" inheritsFrom="parent" id="Fd8-4y-exT"/>
                                                 <segue key="preview" inheritsFrom="commit" id="1rz-TJ-p4d"/>

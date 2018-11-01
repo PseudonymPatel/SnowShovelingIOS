@@ -5,18 +5,20 @@
 //  Created by Sheen Patel on 10/27/18.
 //  Copyright © 2018 Sheen Patel. All rights reserved.
 //
-/*
- This class is used as a model for the incoming JSON. when the JSON comes in, it will be decoded using Rating.self and stored in a struct.
- Decode JSON by JSONDecoder().decode(Rating.self, from:
- */
 
 import UIKit
 
-struct User: Decodable {
-    var ID:Int
+class User {
+    var userID:Int
     var name:String
-    var photoLink:URL
-    var ratings:Rating
+    var profilePic:UIImage
+    var rating:Rating?
+    
+    init(userID:Int, name:String, profilePic:UIImage) {
+        self.userID = userID
+        self.name = name
+        self.profilePic = profilePic
+    }
 }
 
 

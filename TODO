@@ -1,13 +1,20 @@
-This is a file of everything that needs to be done (that has been started)
+This is a file of everything that needs to be done.
+
+Frontend:
 
 1. Map -- backend and frontend
 2. Ratings -- need a non-editable rating class, backend --> Decided to make non-interactable rating
 
 3. user Database!!
- -- use PostgreSQL
-4. currently working on the tables in the map screen. --> something in the tables won't work :/
+ -- use PostgreSQL later, once my own backend is needed.
+Use Firebase for now and hopefully for a long time.
 
-5. add way to contact to the expanded job view
+5. add user's contact info to the expanded job view
 
 Need to improve job class,
-Need to create class to communicate with the database.
+Need to create class to communicate with the database -> Firebase API
+
+Backend:
+
+1. Add contact info things to the `users` database table
+2. am on step 3 of setup, need to install cocoapods, need admin pass
