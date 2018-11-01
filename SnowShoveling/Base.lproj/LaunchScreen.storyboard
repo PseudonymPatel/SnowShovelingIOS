@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,21 +19,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UG5-C5-5kn">
-                                <rect key="frame" x="137" y="178" width="61" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingScreen" translatesAutoresizingMaskIntoConstraints="NO" id="NWy-zM-QPW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NWy-zM-QPW" secondAttribute="height" multiplier="375:667" id="A3N-Y9-lSf"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MO9-1k-l6F">
+                                <rect key="frame" x="0.0" y="75" width="375" height="94"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="60"/>
+                                <color key="textColor" red="0.0026097493167665663" green="0.048769501495264107" blue="0.23584314890710667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.043276802497731748" green="0.013321443952406364" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="-2" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks to Filip Mroz (@mroz) for the photo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDx-cP-J3y">
+                                <rect key="frame" x="0.0" y="652.5" width="243" height="14.5"/>
+                                <color key="backgroundColor" red="0.99004723542213036" green="0.96809507374385739" blue="1" alpha="0.1446115154109589" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eDx-cP-J3y" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2HL-zt-7mZ"/>
+                            <constraint firstItem="NWy-zM-QPW" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ChU-R4-Rv5"/>
+                            <constraint firstItem="NWy-zM-QPW" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Hnd-Jk-dC9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MO9-1k-l6F" secondAttribute="trailing" id="YVK-bW-SHQ"/>
+                            <constraint firstItem="MO9-1k-l6F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="ZjV-CH-X1y"/>
+                            <constraint firstItem="MO9-1k-l6F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d3d-OE-e8o"/>
+                            <constraint firstItem="eDx-cP-J3y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eVZ-ge-NrX"/>
+                            <constraint firstItem="NWy-zM-QPW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zYt-AH-dfB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="loadingScreen" width="2236" height="3130"/>
+    </resources>
 </document>

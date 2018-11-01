@@ -11,6 +11,8 @@ Use Firebase for now and hopefully for a long time.
 
 5. add user's contact info to the expanded job view
 
+6. Fix the problem with resizing the Job Table Cells
+
 Need to improve job class,
 Need to create class to communicate with the database -> Firebase API
 
