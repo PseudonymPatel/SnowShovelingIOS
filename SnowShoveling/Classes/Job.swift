@@ -26,6 +26,7 @@ import CoreLocation
 
 struct Job {
     
+    var dbDelegate = DBDelegate()
     //Properties
     var jobID:Int
     var userID:Int
@@ -35,14 +36,12 @@ struct Job {
     var note:String?
     
     //user related quick info (all but detailed ratings)
-    var name:String
-    var profilePic:UIImage
-    var ratingAvg:Int
+    var user:User
     
     
     //Initialization
     
-    init?(jobID:Int, userID:Int, loc:(Double,Double), date:Date, note:String?, drivewayType:String?, name:String) {
+    init(jobID:Int, userID:Int, loc:(Double,Double), date:Date, note:String?, drivewayType:String?, name:String) {
         
         // Initialize stored properties.
         self.jobID = jobID
@@ -54,13 +53,10 @@ struct Job {
         self.note = note
         self.drivewayType = drivewayType
         
-        //placeholder stuff for now
-        self.name = name
-        self.profilePic = #imageLiteral(resourceName: "defaultProfilePic")
-        self.ratingAvg = 3
-    }
+        self.user = dbDelegate.getUser(id: userID)!
+    }//end of init
     
-}
+} //end of job class
 
 
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70555B15639373FA56E68A88 /* Pods_SnowShoveling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038C7CEA791DF205B959153F /* Pods_SnowShoveling.framework */; };
 		D344B13D217CDC9B00AE7C02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */; };
 		D354C157218B725E00F3CF24 /* secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = D354C156218B725E00F3CF24 /* secret.swift */; };
 		D354C159218B738E00F3CF24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D354C158218B738E00F3CF24 /* GoogleService-Info.plist */; };
@@ -16,7 +17,7 @@
 		D36C930B21613ED100708ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36C930A21613ED100708ECF /* Assets.xcassets */; };
 		D36C930E21613ED100708ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36C930C21613ED100708ECF /* LaunchScreen.storyboard */; };
 		D36C93182161444100708ECF /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C93172161444100708ECF /* ThirdViewController.swift */; };
-		D3A4B453216AC5E500C63887 /* FilterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4B452216AC5E500C63887 /* FilterScreenViewController.swift */; };
+		D3A4B453216AC5E500C63887 /* FilterScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4B452216AC5E500C63887 /* FilterScreenTableViewController.swift */; };
 		D3D936D62185074F001BD329 /* DBDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D936D52185074F001BD329 /* DBDelegate.swift */; };
 		D3D936DB21851135001BD329 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D936DA21851135001BD329 /* User.swift */; };
 		D3D936DD21852AF6001BD329 /* exampleJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = D3D936DC21852AF6001BD329 /* exampleJSON.json */; };
@@ -28,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		038C7CEA791DF205B959153F /* Pods_SnowShoveling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnowShoveling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		646DB81856B8B59E6FD9F0A7 /* Pods-SnowShoveling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnowShoveling.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling.release.xcconfig"; sourceTree = "<group>"; };
+		CCC4814247343A3382C68ECF /* Pods-SnowShoveling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnowShoveling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling.debug.xcconfig"; sourceTree = "<group>"; };
 		D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D354C156218B725E00F3CF24 /* secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secret.swift; sourceTree = "<group>"; };
 		D354C158218B738E00F3CF24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -39,7 +43,7 @@
 		D36C930D21613ED100708ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D36C930F21613ED100708ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D36C93172161444100708ECF /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		D3A4B452216AC5E500C63887 /* FilterScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterScreenViewController.swift; sourceTree = "<group>"; };
+		D3A4B452216AC5E500C63887 /* FilterScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterScreenTableViewController.swift; sourceTree = "<group>"; };
 		D3D936D52185074F001BD329 /* DBDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDelegate.swift; sourceTree = "<group>"; };
 		D3D936DA21851135001BD329 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D3D936DC21852AF6001BD329 /* exampleJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleJSON.json; sourceTree = "<group>"; };
@@ -55,12 +59,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70555B15639373FA56E68A88 /* Pods_SnowShoveling.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DB3878174CDBEBF8A543C35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				038C7CEA791DF205B959153F /* Pods_SnowShoveling.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F0F6F92749300868950A4F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCC4814247343A3382C68ECF /* Pods-SnowShoveling.debug.xcconfig */,
+				646DB81856B8B59E6FD9F0A7 /* Pods-SnowShoveling.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D36C92F521613ECC00708ECF = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +90,8 @@
 				D3D936DC21852AF6001BD329 /* exampleJSON.json */,
 				D36C930021613ECC00708ECF /* SnowShoveling */,
 				D36C92FF21613ECC00708ECF /* Products */,
+				3F0F6F92749300868950A4F3 /* Pods */,
+				2DB3878174CDBEBF8A543C35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */,
-				D3A4B452216AC5E500C63887 /* FilterScreenViewController.swift */,
+				D3A4B452216AC5E500C63887 /* FilterScreenTableViewController.swift */,
 				D3EFAE31216BA46200FE98C1 /* MapTableViewCell.swift */,
 			);
 			path = SecondTab;
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D36C931221613ED100708ECF /* Build configuration list for PBXNativeTarget "SnowShoveling" */;
 			buildPhases = (
+				6C4EF422DBC41BF9FEE86C7F /* [CP] Check Pods Manifest.lock */,
 				D36C92FA21613ECC00708ECF /* Sources */,
 				D36C92FB21613ECC00708ECF /* Frameworks */,
 				D36C92FC21613ECC00708ECF /* Resources */,
+				FDD30646E167F74F866C70AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,6 +214,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6C4EF422DBC41BF9FEE86C7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SnowShoveling-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDD30646E167F74F866C70AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D36C92FA21613ECC00708ECF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -202,7 +269,7 @@
 				D36C930221613ECC00708ECF /* AppDelegate.swift in Sources */,
 				D3FE3A33216BE486004C0140 /* Job.swift in Sources */,
 				D3EFAE32216BA46200FE98C1 /* MapTableViewCell.swift in Sources */,
-				D3A4B453216AC5E500C63887 /* FilterScreenViewController.swift in Sources */,
+				D3A4B453216AC5E500C63887 /* FilterScreenTableViewController.swift in Sources */,
 				D36C93182161444100708ECF /* ThirdViewController.swift in Sources */,
 				D36C930421613ECC00708ECF /* FirstViewController.swift in Sources */,
 			);
@@ -346,6 +413,7 @@
 		};
 		D36C931321613ED100708ECF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCC4814247343A3382C68ECF /* Pods-SnowShoveling.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -364,6 +432,7 @@
 		};
 		D36C931421613ED100708ECF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 646DB81856B8B59E6FD9F0A7 /* Pods-SnowShoveling.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

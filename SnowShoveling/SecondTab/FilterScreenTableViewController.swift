@@ -8,18 +8,22 @@
 
 import UIKit
 
-class FilterScreenViewController: UIViewController {
-    var filters:[String:String] = ["Radius":"10"]
-
-    @IBOutlet var radiusField: UITextField?
+class FilterScreenTableViewController: UITableViewController {
+    var filters:[String:Any] = ["Radius":10,"JobType":["driveway","pathway","sidewalk"], "DrivewayType":"asphalt"]
+    
+    
+    @IBOutlet weak var radiusLabel: UILabel!
+    
+    @IBAction func radiusStepperChanged(_ sender: UIStepper) {
+        radiusLabel.text = String(sender.value) + " mi"
+        filters["Radius"] = Int(sender.value)
+    }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        let radius = radiusField?.text
-        print(radius!)
         self.dismiss(animated: true, completion: nil)
     }
 

@@ -1,22 +1,44 @@
 This is a file of everything that needs to be done.
 
+/-------------------------------------------------------------------------------------------------------------------\
+|•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••|
+\-------------------------------------------------------------------------------------------------------------------/
+VERY IMPORTANT NOTES: look at before prod.
+
+Job class cannot handle a nil user. This means that if there are no ratings, no rating class,
+    the whole app WILL CRASH! This needs to be fixed asap before prod!!
+
+There is no nil handling/error handling in the code. This better be able to
+    work with all the edge cases. This means putting in default values.
+
+IN THE MIDDLE OF CREATIN JOB THING
+
+/------------------------------------------------------------------------------------------------------------------\
+|••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••|
+\------------------------------------------------------------------------------------------------------------------/
+
+
 Frontend:
 
 1. Map -- backend and frontend
 2. Ratings -- need a non-editable rating class, backend --> Decided to make non-interactable rating
 
 3. user Database!!
- -- use PostgreSQL later, once my own backend is needed.
-Use Firebase for now and hopefully for a long time.
+    -- use PostgreSQL later, once my own backend is needed.
+    Use Firebase for now and hopefully for a long time.
 
 5. add user's contact info to the expanded job view
 
 6. Fix the problem with resizing the Job Table Cells
 
-Need to improve job class,
-Need to create class to communicate with the database -> Firebase API
+7 Need to improve job class,
+8. Need to create class to communicate with the database -> Firebase API
 
+9. The filter screen needs to have real functionality, also, add more filters?
+    Should the filters be shown on the main screen?
+
+10. Make the RatingBit Sequence and IteratorProtocol Protocols compliant so I can use them/loop through them.
 Backend:
 
 1. Add contact info things to the `users` database table
-2. am on step 3 of setup, need to install cocoapods, need admin pass
+2. need to connect the app to the backend, see iOS app on the firebase console.

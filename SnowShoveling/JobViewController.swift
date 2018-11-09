@@ -17,6 +17,8 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     var jobs = [Job]()
+    let dbDelegate = DBDelegate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -53,9 +55,9 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         let job = jobs[indexPath.row]
 
         // Configure the cell...
-        cell.nameLabel.text = job.name
-        cell.photoImageView.image = #imageLiteral(resourceName: "defaultProfilePic") //TODO: change to real thing, placeholder until database works
-        cell.ratingControl.rating = job.ratingAvg
+        cell.nameLabel.text = job.user.name
+        cell.photoImageView.image = job.user.profilePic
+        cell.ratingControl.rating = Int((job.user.rating.ratingAvg)) //needx to change to be able to handle DOUBLES!! cannot handle nil
         cell.drivewayTypeLabel.text = (job.drivewayType != nil) ? job.drivewayType : "not listed"
         
         return cell
@@ -71,18 +73,6 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         //let photo3 = photo1
         
         //create sample jobs
-        guard let job1 = Job(jobID:1, userID:1, loc:(10.0,10.0), date:Date(), note:nil, drivewayType:"asphalt", name:"Naimish") else {
-            fatalError("Unable to instantiate job1")
-        }
-        
-        guard let job2 = Job(jobID:2, userID:1, loc:(10.0,10.0), date:Date(), note:nil, drivewayType:"pebble", name:"Joe") else {
-            fatalError("Unable to instantiate job2")
-        }
-        
-        guard let job3 = Job(jobID:3, userID:1, loc:(10.0,10.0), date:Date(), note:"no note", drivewayType:"really long obscure type", name:"ANDFSLKSKKDKSJDDLSDFJDKLONGNAME") else {
-            fatalError("Unable to instantiate job3")
-        }
-        
-        jobs += [job1, job2, job3]
+        jobs = dbDelegate.getJobs()
     }
 }
