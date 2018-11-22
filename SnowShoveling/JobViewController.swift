@@ -57,8 +57,8 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         // Configure the cell...
         cell.nameLabel.text = job.user.name
         cell.photoImageView.image = job.user.profilePic
-        cell.ratingControl.rating = Int((job.user.rating.ratingAvg)) //needx to change to be able to handle DOUBLES!! cannot handle nil
-        cell.drivewayTypeLabel.text = (job.drivewayType != nil) ? job.drivewayType : "not listed"
+        cell.ratingControl.rating = Int((job.user.ratingAvg)) //need to change to be able to handle DOUBLES!! cannot handle nil
+        //cell.drivewayTypeLabel.text = (job.drivewayType != nil) ? job.drivewayType : "not listed"
         
         return cell
     }

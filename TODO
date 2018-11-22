@@ -11,7 +11,7 @@ Job class cannot handle a nil user. This means that if there are no ratings, no 
 There is no nil handling/error handling in the code. This better be able to
     work with all the edge cases. This means putting in default values.
 
-IN THE MIDDLE OF CREATIN JOB THING
+IN THE MIDDLE OF CREATING JOB THING!!
 
 /------------------------------------------------------------------------------------------------------------------\
 |••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••|
@@ -32,13 +32,21 @@ Frontend:
 6. Fix the problem with resizing the Job Table Cells
 
 7 Need to improve job class,
-8. Need to create class to communicate with the database -> Firebase API
+
+ (working on) Need to create class to communicate with the database -> Firebase API
 
 9. The filter screen needs to have real functionality, also, add more filters?
     Should the filters be shown on the main screen?
 
 10. Make the RatingBit Sequence and IteratorProtocol Protocols compliant so I can use them/loop through them.
-Backend:
 
+11. Need to create swipes so the user can use swiping to go back and forth
+
+12. Persistent storage for the acceptedJobs,
+
+13. Accepted Jobs table
+
+---------------------------------
+
+Backend:
 1. Add contact info things to the `users` database table
-2. need to connect the app to the backend, see iOS app on the firebase console.

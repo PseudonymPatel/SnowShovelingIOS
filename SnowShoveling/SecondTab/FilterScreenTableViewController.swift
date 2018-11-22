@@ -26,7 +26,7 @@ class FilterScreenTableViewController: UITableViewController {
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
