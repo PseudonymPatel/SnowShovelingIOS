@@ -11,16 +11,17 @@ import UIKit
 import Firebase
 import CoreLocation
 
-class DBDelegate { //if want jobs, call getJobs, then check jobArray
-    static let shared = DBDelegate() //singleton
+class FirebaseService { //if want jobs, call getJobs, then check jobArray
+    var doNotTouchThisThing = FirebaseApp.configure()
+    static let shared = FirebaseService() //singleton
     var jobArray = [Job]()
-    var db = Firestore.firestore()
+    let db = Firestore.firestore()
     //-------------------------------------------------------
     final let needExampleData = true //THIS SHOULD ONLY BE TICKED IF THE DATABASE SHOULD NOT BE USED!!
     //-------------------------------------------------------
     
     init() {
-        FirebaseApp.configure()
+        //FirebaseApp.configure()
     }
     
     

@@ -17,7 +17,7 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     var jobs = [Job]()
-    var dbDelegate = DBDelegate.shared
+    var dbDelegate = FirebaseService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()

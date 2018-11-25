@@ -18,7 +18,7 @@
     time of job (Date)
  
  In case of a memory warning, the job classes will be deleted, and will have to be queried from the server.
- 
+ DONT EVEN THINK ABOUT THE SENTENCE ABOVE!
  */
 
 import UIKit
@@ -26,7 +26,7 @@ import CoreLocation
 
 struct Job {
     
-    let dbDelegate = DBDelegate.shared
+    let dbDelegate = FirebaseService.shared
     
     //properties
     var jobID:Int
