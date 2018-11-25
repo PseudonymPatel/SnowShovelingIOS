@@ -9,18 +9,19 @@
 import UIKit
 
 struct User {
-    var userID:Int
-    var name:String
-    var profilePic:UIImage
-    var ratingAvg:Double
-    var rating:Ratings = Ratings(ratings: [])
+    let userID:Int
+    let name:String
+    let profilePic:UIImage
+    let ratingAvg:Double
+    var ratingArray:Ratings = Ratings()
+    let phoneNumber:Int
     
-    init(userID:Int, name:String, profilePic:UIImage, ratingAvg:Double) {
+    init(userID:Int, name:String, profilePic:UIImage, ratingAvg:Double, phoneNum:Int) {
         self.userID = userID
         self.name = name
         self.profilePic = profilePic
         self.ratingAvg = ratingAvg
-        self.rating.ratings = []
+        self.phoneNumber = phoneNum
     }
 }
 
@@ -28,17 +29,24 @@ struct Ratings {
     
     var ratings = [(title:String, stars:Int, description:String)]()
     
-    //init(title:String, ratingNum:Int, description:String) {
-    //    let bit = (title:title, stars:ratingNum, description:description)
-    //    ratings += bit
+    //init(title:String, stars:Int, description:String) {
+    //    let bit = (title:title, stars:stars, description:description)
+    //    ratings.append(bit)
+    //}
+    //
+    //init(ratings:[(title:String, stars:Int, description:String)]) {
+    //    self.ratings += ratings
     //}
     
-    init(ratings:[(title:String, stars:Int, description:String)]) {
-        self.ratings += ratings
+    init() {
+        ratings = []
     }
     
-    mutating func addRating(title:String, stars:Int, desc:String) {
-        //let bit = RatingBit(title: title, ratingNum: stars, description: desc)
+    mutating func addRating(title:String, stars:Int, description:String) {
+        ratings.append((title: title, stars: stars, description: description))
         //cant really do anything -> needs to conform RatingBit to things... (see `TODO`)
+    }
+    mutating func addRating(rating: (title:String, stars:Int, description:String)) {
+        ratings.append(rating)
     }
 }

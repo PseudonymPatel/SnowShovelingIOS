@@ -17,7 +17,7 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     var jobs = [Job]()
-    let dbDelegate = DBDelegate()
+    var dbDelegate = DBDelegate.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +73,7 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         //let photo3 = photo1
         
         //create sample jobs
-        jobs = dbDelegate.getJobs()
+        dbDelegate.getJobs()
+        jobs = dbDelegate.jobArray
     }
 }
