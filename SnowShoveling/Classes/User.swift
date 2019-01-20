@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct User {
+class User {
     let userID:Int
     let name:String
     let profilePic:UIImage

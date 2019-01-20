@@ -13,7 +13,7 @@ import CoreLocation
 class JobViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
        
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var jobTableView: UITableView!
     
     
     var jobs = [Job]()
@@ -21,9 +21,9 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        loadJobs()
+        jobTableView.dataSource = self
+        jobTableView.delegate = self
+        reloadJobs()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +42,14 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showDetail", sender: self)
+        self.performSegue(withIdentifier: "showDetail", sender: jobs[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.jobToDisplay = (sender as! Job)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,7 +70,7 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         return cell
     }
 
-    private func loadJobs() {
+    func reloadJobs() {
         
         //create sample locaton data
         //let sampleLocation:CLPlacemark = CLPlacemark.init()
@@ -72,8 +79,13 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         //let photo2 = photo1
         //let photo3 = photo1
         
-        //create sample jobs
-        dbDelegate.getJobs()
-        jobs = dbDelegate.jobArray
+        self.dbDelegate.getAllJobs()
+        dbDelegate.dispatchGroup.notify(queue: .main) {
+            self.jobs = self.dbDelegate.jobArray
+            self.jobTableView.reloadData()
+            print("data loaded")
+            print("contents of table: \(self.jobs)")
+        }
     }
+    
 }

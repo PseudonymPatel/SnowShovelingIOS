@@ -24,9 +24,9 @@
 import UIKit
 import CoreLocation
 
-struct Job {
+class Job {
     
-    let dbDelegate = FirebaseService.shared
+    //let dbDelegate = FirebaseService.shared
     
     //properties
     var jobID:Int
@@ -36,12 +36,10 @@ struct Job {
     var note:String?
     
     //user related quick info (all but detailed ratings)
-    var user:User
+    var user:User = FirebaseService.shared.getDefaultUser()
     
-    
-    //Initialization
-    
-    init(jobID:Int, userID:Int, loc:CLLocation, date:Date, note:String, drivewayType:String) {
+    //init with user gotten
+    init(jobID:Int, user:User, loc:CLLocation, date:Date, note:String, drivewayType:String) {
         
         // Initialize stored properties.
         self.jobID = jobID
@@ -50,8 +48,7 @@ struct Job {
         self.date = date
         self.note = note
         self.drivewayType = drivewayType
-        
-        self.user = dbDelegate.getUser(id: userID)
+        self.user = user
     }//end of init
     
 } //end of job class
