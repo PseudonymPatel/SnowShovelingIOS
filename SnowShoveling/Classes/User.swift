@@ -9,14 +9,14 @@
 import UIKit
 
 class User {
-    let userID:Int
+    let userID:String
     let name:String
     let profilePic:UIImage
     let ratingAvg:Double
     var ratingArray:Ratings = Ratings()
     let phoneNumber:Int
     
-    init(userID:Int, name:String, profilePic:UIImage, ratingAvg:Double, phoneNum:Int) {
+    init(userID:String, name:String, profilePic:UIImage, ratingAvg:Double, phoneNum:Int) {
         self.userID = userID
         self.name = name
         self.profilePic = profilePic

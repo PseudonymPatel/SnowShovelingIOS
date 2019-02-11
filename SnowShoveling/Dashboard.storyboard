@@ -1,17 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEN-yH-VVj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9f4-10-1be">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Dashboard-->
+        <scene sceneID="5k3-6B-Pcz">
+            <objects>
+                <viewController id="b8z-xK-dbC" customClass="MainDashboardViewController" customModule="SnowShoveling" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bgd-hZ-q24">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVh-r2-T6J">
+                                <rect key="frame" x="0.0" y="88" width="375" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="List Job" backgroundImage="tabBarBackground">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="toListJob:" destination="b8z-xK-dbC" eventType="touchUpInside" id="WEb-I3-3Cf"/>
+                                    <segue destination="ecF-Bb-CoD" kind="show" id="tZI-gq-Nx3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b5K-d0-w1r" firstAttribute="bottom" secondItem="KVh-r2-T6J" secondAttribute="bottom" constant="644" id="XUs-k0-fcG"/>
+                            <constraint firstAttribute="trailing" secondItem="KVh-r2-T6J" secondAttribute="trailing" id="cfx-FH-Qjl"/>
+                            <constraint firstItem="KVh-r2-T6J" firstAttribute="top" secondItem="b5K-d0-w1r" secondAttribute="top" id="hof-7x-jGc"/>
+                            <constraint firstItem="KVh-r2-T6J" firstAttribute="leading" secondItem="bgd-hZ-q24" secondAttribute="leading" id="osH-Eb-1Ww"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b5K-d0-w1r"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dashboard" id="hZh-XM-mJa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Afx-Ro-lSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="231.19999999999999" y="-170.68965517241381"/>
+        </scene>
+        <!--Add Listing-->
+        <scene sceneID="RRL-K5-Esq">
+            <objects>
+                <viewController title="Add Listing" id="ecF-Bb-CoD" customClass="AddListingViewController" customModule="SnowShoveling" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cFL-xD-VKu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-K3-4dx">
+                                <rect key="frame" x="57" y="665" width="261" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64720569080000001" green="0.98530694799999996" blue="0.93063592890000002" alpha="0.76987906679999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add listing"/>
+                                <connections>
+                                    <action selector="addListingButton:" destination="ecF-Bb-CoD" eventType="touchUpInside" id="LhU-Ia-L0c"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="what day?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAW-j8-5jT">
+                                <rect key="frame" x="16" y="88" width="107" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="driveway type?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohs-aE-Szi">
+                                <rect key="frame" x="16" y="360" width="156" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="any notes?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-D8-j57">
+                                <rect key="frame" x="16" y="451" width="156" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Yrf-0a-4SC">
+                                <rect key="frame" x="0.0" y="141" width="375" height="211"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="571536566.21405303">
+                                    <!--2019-02-11 00:09:26 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Asphalt, cement, etc." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hgN-rB-MSp">
+                                <rect key="frame" x="16" y="413" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes or special requests for potenital applicants" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sTB-i9-Mae">
+                                <rect key="frame" x="16" y="504" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kWm-Y4-xHS"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Yrf-0a-4SC" id="Rkp-ev-FDC"/>
+                        <outlet property="drivewayTypeField" destination="hgN-rB-MSp" id="ytn-un-375"/>
+                        <outlet property="noteField" destination="sTB-i9-Mae" id="Ezj-r3-V5Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c5a-qn-K0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1199.2" y="-170.68965517241381"/>
+        </scene>
         <!--Collection View Controller-->
         <scene sceneID="XzD-v5-dkA">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t63-EM-ckk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="dEN-yH-VVj" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Yef-Vc-bYb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -39,9 +149,29 @@
                         </connections>
                     </collectionView>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t63-EM-ckk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325.60000000000002" y="-18.472906403940886"/>
+            <point key="canvasLocation" x="2148" y="-203.20197044334975"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YRz-c1-fnc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9f4-10-1be" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DjZ-ho-Te3">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="b8z-xK-dbC" kind="relationship" relationship="rootViewController" id="1Hz-fz-JMJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vIV-td-GM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-711.20000000000005" y="-170.68965517241381"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabBarBackground" width="320" height="72"/>
+    </resources>
 </document>

@@ -29,7 +29,7 @@ class Job {
     //let dbDelegate = FirebaseService.shared
     
     //properties
-    var jobID:Int
+    var jobID:String
     var location: CLLocation //changed to CLLocation from CLPlacemark to make things easier.
     var drivewayType:String?
     var date:Date
@@ -39,7 +39,7 @@ class Job {
     var user:User = FirebaseService.shared.getDefaultUser()
     
     //init with user gotten
-    init(jobID:Int, user:User, loc:CLLocation, date:Date, note:String, drivewayType:String) {
+    init(jobID:String, user:User, loc:CLLocation, date:Date, note:String, drivewayType:String) {
         
         // Initialize stored properties.
         self.jobID = jobID
@@ -52,17 +52,3 @@ class Job {
     }//end of init
     
 } //end of job class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
