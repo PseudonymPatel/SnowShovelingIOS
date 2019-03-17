@@ -152,8 +152,21 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
     //WRITING TO DATABASE
     
     //called very few times per app download, because ideally only one user needs to be created per phone.
-    func addUser(user:User) {
-        
+    func addUser(uid:String, profilePic:UIImage, phoneNumber:Int, name:String) { //returns userID (document name)
+        db.collection("Users").addDocument(data: [
+            "name": name,
+            "phoneNumber": phoneNumber,
+            "ratingAvg": "0",
+            "profilePic": "/userImages/default.jpeg",
+            "uid": uid
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+
     }
     
     //-----------------------------

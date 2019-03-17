@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   globals.plist
-   SnowShoveling
-
-   Created by Sheen Patel on 2/24/19.
-   Copyright (c) 2019 Sheen Patel. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>userID</key>
+	<string>temp</string>
+	<key>UID</key>
+	<string>RqtkIk5FcUdNtBfJ0ixhhjpWJQS2</string>
+</dict>
 </plist>

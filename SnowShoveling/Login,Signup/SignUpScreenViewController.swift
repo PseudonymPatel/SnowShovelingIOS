@@ -55,6 +55,7 @@ class SignUpScreenViewController: UIViewController {
         }
         if passwordField.text == passwordField2.text {
             sender.backgroundColor = .green
+            passwordFieldOK = true
         } else {
             sender.backgroundColor = .orange
         }
@@ -93,6 +94,7 @@ class SignUpScreenViewController: UIViewController {
             let uid = authResult.user.uid
             writeToPlist(key: "UID", value: uid)
             tempUserData.shared.uid = uid
+            self.performSegue(withIdentifier: "moreInfo", sender: nil)
         }
         
     }
