@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		4683D1FF9C8D7D2E85B74981 /* Pods_SnowShoveling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520392853968EB90160AD222 /* Pods_SnowShoveling.framework */; };
 		D344B13D217CDC9B00AE7C02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */; };
-		D354C157218B725E00F3CF24 /* secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = D354C156218B725E00F3CF24 /* secret.swift */; };
-		D354C159218B738E00F3CF24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D354C158218B738E00F3CF24 /* GoogleService-Info.plist */; };
+		D348A7C72222FD37003D2C95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D348A7C62222FD37003D2C95 /* GoogleService-Info.plist */; };
+		D348A7C922230293003D2C95 /* SignupLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D348A7C822230293003D2C95 /* SignupLogin.storyboard */; };
+		D348A7CB22230999003D2C95 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D348A7CA22230999003D2C95 /* LoginScreenViewController.swift */; };
+		D35D29A322359A32006A895C /* miscHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35D29A222359A32006A895C /* miscHelpers.swift */; };
+		D35D29A62235A95E006A895C /* MoreSignupInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35D29A52235A95E006A895C /* MoreSignupInfoViewController.swift */; };
 		D36C930221613ECC00708ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C930121613ECC00708ECF /* AppDelegate.swift */; };
 		D36C930421613ECC00708ECF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C930321613ECC00708ECF /* FirstViewController.swift */; };
 		D36C930921613ECC00708ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36C930721613ECC00708ECF /* Main.storyboard */; };
@@ -18,14 +21,18 @@
 		D36C930E21613ED100708ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36C930C21613ED100708ECF /* LaunchScreen.storyboard */; };
 		D36C93182161444100708ECF /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C93172161444100708ECF /* ThirdViewController.swift */; };
 		D3A4B453216AC5E500C63887 /* FilterScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4B452216AC5E500C63887 /* FilterScreenTableViewController.swift */; };
+		D3A856A82210F6C30088E04A /* MainDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A856A72210F6C30088E04A /* MainDashboardViewController.swift */; };
+		D3A856AA2210F6D50088E04A /* AddListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A856A92210F6D50088E04A /* AddListingViewController.swift */; };
 		D3AFF8A521988DD40087CB72 /* JobSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AFF8A421988DD40087CB72 /* JobSelection.storyboard */; };
 		D3AFF8A72198C65C0087CB72 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AFF8A62198C65C0087CB72 /* Dashboard.storyboard */; };
 		D3AFF8A92198C6AA0087CB72 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AFF8A82198C6AA0087CB72 /* More.storyboard */; };
 		D3D936D62185074F001BD329 /* DBDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D936D52185074F001BD329 /* DBDelegate.swift */; };
 		D3D936DB21851135001BD329 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D936DA21851135001BD329 /* User.swift */; };
-		D3D936DD21852AF6001BD329 /* exampleJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = D3D936DC21852AF6001BD329 /* exampleJSON.json */; };
 		D3EFAE32216BA46200FE98C1 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EFAE31216BA46200FE98C1 /* MapTableViewCell.swift */; };
 		D3EFAE34216BA71400FE98C1 /* RatingControlEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EFAE33216BA71400FE98C1 /* RatingControlEditable.swift */; };
+		D3F305C92223294300805BFE /* SignUpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F305C82223294300805BFE /* SignUpScreenViewController.swift */; };
+		D3F305CB2223491500805BFE /* globals.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3F305CA2223491500805BFE /* globals.plist */; };
+		D3F305CD2223493400805BFE /* plistHelperFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F305CC2223493400805BFE /* plistHelperFuncs.swift */; };
 		D3FE3A2E216BDC01004C0140 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = D3FE3A2D216BDC01004C0140 /* TODO */; };
 		D3FE3A30216BE246004C0140 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE3A2F216BE246004C0140 /* JobViewController.swift */; };
 		D3FE3A33216BE486004C0140 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE3A32216BE486004C0140 /* Job.swift */; };
@@ -36,8 +43,11 @@
 		520392853968EB90160AD222 /* Pods_SnowShoveling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnowShoveling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE1C5999DF995C6AE87CEA0 /* Pods-SnowShoveling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnowShoveling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling.debug.xcconfig"; sourceTree = "<group>"; };
 		D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		D354C156218B725E00F3CF24 /* secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secret.swift; sourceTree = "<group>"; };
-		D354C158218B738E00F3CF24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D348A7C62222FD37003D2C95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D348A7C822230293003D2C95 /* SignupLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignupLogin.storyboard; sourceTree = "<group>"; };
+		D348A7CA22230999003D2C95 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
+		D35D29A222359A32006A895C /* miscHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miscHelpers.swift; sourceTree = "<group>"; };
+		D35D29A52235A95E006A895C /* MoreSignupInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreSignupInfoViewController.swift; sourceTree = "<group>"; };
 		D36C92FE21613ECC00708ECF /* SnowShoveling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowShoveling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36C930121613ECC00708ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36C930321613ECC00708ECF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -47,14 +57,18 @@
 		D36C930F21613ED100708ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D36C93172161444100708ECF /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		D3A4B452216AC5E500C63887 /* FilterScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterScreenTableViewController.swift; sourceTree = "<group>"; };
+		D3A856A72210F6C30088E04A /* MainDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDashboardViewController.swift; sourceTree = "<group>"; };
+		D3A856A92210F6D50088E04A /* AddListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListingViewController.swift; sourceTree = "<group>"; };
 		D3AFF8A421988DD40087CB72 /* JobSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobSelection.storyboard; sourceTree = "<group>"; };
 		D3AFF8A62198C65C0087CB72 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		D3AFF8A82198C6AA0087CB72 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		D3D936D52185074F001BD329 /* DBDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDelegate.swift; sourceTree = "<group>"; };
 		D3D936DA21851135001BD329 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D3D936DC21852AF6001BD329 /* exampleJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleJSON.json; sourceTree = "<group>"; };
 		D3EFAE31216BA46200FE98C1 /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
 		D3EFAE33216BA71400FE98C1 /* RatingControlEditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControlEditable.swift; sourceTree = "<group>"; };
+		D3F305C82223294300805BFE /* SignUpScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenViewController.swift; sourceTree = "<group>"; };
+		D3F305CA2223491500805BFE /* globals.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = globals.plist; sourceTree = "<group>"; };
+		D3F305CC2223493400805BFE /* plistHelperFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plistHelperFuncs.swift; sourceTree = "<group>"; };
 		D3FE3A2D216BDC01004C0140 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		D3FE3A2F216BE246004C0140 /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
 		D3FE3A32216BE486004C0140 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
@@ -89,11 +103,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D35D29A42235A046006A895C /* Login,Signup */ = {
+			isa = PBXGroup;
+			children = (
+				D348A7C822230293003D2C95 /* SignupLogin.storyboard */,
+				D348A7CA22230999003D2C95 /* LoginScreenViewController.swift */,
+				D3F305C82223294300805BFE /* SignUpScreenViewController.swift */,
+				D35D29A52235A95E006A895C /* MoreSignupInfoViewController.swift */,
+			);
+			path = "Login,Signup";
+			sourceTree = "<group>";
+		};
 		D36C92F521613ECC00708ECF = {
 			isa = PBXGroup;
 			children = (
 				D3FE3A2D216BDC01004C0140 /* TODO */,
-				D3D936DC21852AF6001BD329 /* exampleJSON.json */,
 				D36C930021613ECC00708ECF /* SnowShoveling */,
 				D36C92FF21613ECC00708ECF /* Products */,
 				B40B10FB3C2231887C458419 /* Pods */,
@@ -112,10 +136,12 @@
 		D36C930021613ECC00708ECF /* SnowShoveling */ = {
 			isa = PBXGroup;
 			children = (
+				D35D29A42235A046006A895C /* Login,Signup */,
+				D3A856A62210F6890088E04A /* Dashboard */,
 				D3D936D921851004001BD329 /* Classes */,
+				D3FE3A31216BE25E004C0140 /* SecondTab */,
 				D36C930121613ECC00708ECF /* AppDelegate.swift */,
 				D3FE3A2F216BE246004C0140 /* JobViewController.swift */,
-				D3FE3A31216BE25E004C0140 /* SecondTab */,
 				D36C930321613ECC00708ECF /* FirstViewController.swift */,
 				D36C93172161444100708ECF /* ThirdViewController.swift */,
 				D36C930721613ECC00708ECF /* Main.storyboard */,
@@ -125,10 +151,20 @@
 				D3AFF8A82198C6AA0087CB72 /* More.storyboard */,
 				D36C930A21613ED100708ECF /* Assets.xcassets */,
 				D36C930F21613ED100708ECF /* Info.plist */,
-				D354C158218B738E00F3CF24 /* GoogleService-Info.plist */,
-				D354C156218B725E00F3CF24 /* secret.swift */,
+				D348A7C62222FD37003D2C95 /* GoogleService-Info.plist */,
+				D3F305CA2223491500805BFE /* globals.plist */,
+				D3F305CC2223493400805BFE /* plistHelperFuncs.swift */,
 			);
 			path = SnowShoveling;
+			sourceTree = "<group>";
+		};
+		D3A856A62210F6890088E04A /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D3A856A72210F6C30088E04A /* MainDashboardViewController.swift */,
+				D3A856A92210F6D50088E04A /* AddListingViewController.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		D3D936D921851004001BD329 /* Classes */ = {
@@ -138,6 +174,7 @@
 				D3D936DA21851135001BD329 /* User.swift */,
 				D3D936D52185074F001BD329 /* DBDelegate.swift */,
 				D3EFAE33216BA71400FE98C1 /* RatingControlEditable.swift */,
+				D35D29A222359A32006A895C /* miscHelpers.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -213,15 +250,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3D936DD21852AF6001BD329 /* exampleJSON.json in Resources */,
 				D3AFF8A92198C6AA0087CB72 /* More.storyboard in Resources */,
+				D348A7C72222FD37003D2C95 /* GoogleService-Info.plist in Resources */,
 				D36C930E21613ED100708ECF /* LaunchScreen.storyboard in Resources */,
 				D36C930B21613ED100708ECF /* Assets.xcassets in Resources */,
 				D3AFF8A72198C65C0087CB72 /* Dashboard.storyboard in Resources */,
+				D3F305CB2223491500805BFE /* globals.plist in Resources */,
 				D3FE3A2E216BDC01004C0140 /* TODO in Resources */,
 				D36C930921613ECC00708ECF /* Main.storyboard in Resources */,
+				D348A7C922230293003D2C95 /* SignupLogin.storyboard in Resources */,
 				D3AFF8A521988DD40087CB72 /* JobSelection.storyboard in Resources */,
-				D354C159218B738E00F3CF24 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +276,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -253,6 +292,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -300,12 +340,18 @@
 				D3D936DB21851135001BD329 /* User.swift in Sources */,
 				D3D936D62185074F001BD329 /* DBDelegate.swift in Sources */,
 				D344B13D217CDC9B00AE7C02 /* DetailViewController.swift in Sources */,
+				D3A856A82210F6C30088E04A /* MainDashboardViewController.swift in Sources */,
+				D3F305C92223294300805BFE /* SignUpScreenViewController.swift in Sources */,
+				D35D29A62235A95E006A895C /* MoreSignupInfoViewController.swift in Sources */,
 				D3EFAE34216BA71400FE98C1 /* RatingControlEditable.swift in Sources */,
+				D3A856AA2210F6D50088E04A /* AddListingViewController.swift in Sources */,
 				D3FE3A30216BE246004C0140 /* JobViewController.swift in Sources */,
-				D354C157218B725E00F3CF24 /* secret.swift in Sources */,
+				D35D29A322359A32006A895C /* miscHelpers.swift in Sources */,
 				D36C930221613ECC00708ECF /* AppDelegate.swift in Sources */,
+				D348A7CB22230999003D2C95 /* LoginScreenViewController.swift in Sources */,
 				D3FE3A33216BE486004C0140 /* Job.swift in Sources */,
 				D3EFAE32216BA46200FE98C1 /* MapTableViewCell.swift in Sources */,
+				D3F305CD2223493400805BFE /* plistHelperFuncs.swift in Sources */,
 				D3A4B453216AC5E500C63887 /* FilterScreenTableViewController.swift in Sources */,
 				D36C93182161444100708ECF /* ThirdViewController.swift in Sources */,
 				D36C930421613ECC00708ECF /* FirstViewController.swift in Sources */,

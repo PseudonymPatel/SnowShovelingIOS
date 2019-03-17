@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "magGlass1x Selected.png",
+      "filename" : "magGlass1x selectedbetter.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "magGlass2x Selected.png",
+      "filename" : "magGlass2xselectedbetter.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "magGlass3x Selected.png",
+      "filename" : "magGlass3xselectedbetter.png",
       "scale" : "3x"
     }
   ],
