@@ -26,7 +26,11 @@ class LoginScreenViewController: UIViewController {
             return
         }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
-            guard let strongSelf = self else { return }
+            if let error = error { //do sth if error
+                sender.setTitle("Error: \(error)", for: UIControl.State.normal)
+            }
+            
+            guard self != nil else { return }
             print("successfully logged in user!")
             sender.setTitle("Logged In!", for: UIControl.State.normal)
         }
