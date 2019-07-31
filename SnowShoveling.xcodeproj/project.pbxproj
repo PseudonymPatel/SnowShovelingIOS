@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		307E658722D4B0F5009018D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 307E658622D4B0F4009018D8 /* GoogleService-Info.plist */; };
 		4683D1FF9C8D7D2E85B74981 /* Pods_SnowShoveling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520392853968EB90160AD222 /* Pods_SnowShoveling.framework */; };
 		D344B13D217CDC9B00AE7C02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */; };
-		D348A7C72222FD37003D2C95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D348A7C62222FD37003D2C95 /* GoogleService-Info.plist */; };
 		D348A7C922230293003D2C95 /* SignupLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D348A7C822230293003D2C95 /* SignupLogin.storyboard */; };
 		D348A7CB22230999003D2C95 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D348A7CA22230999003D2C95 /* LoginScreenViewController.swift */; };
 		D35D29A322359A32006A895C /* miscHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35D29A222359A32006A895C /* miscHelpers.swift */; };
@@ -40,10 +40,10 @@
 
 /* Begin PBXFileReference section */
 		2180ACD351833323ADCEA643 /* Pods-SnowShoveling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnowShoveling.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling.release.xcconfig"; sourceTree = "<group>"; };
+		307E658622D4B0F4009018D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		520392853968EB90160AD222 /* Pods_SnowShoveling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnowShoveling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE1C5999DF995C6AE87CEA0 /* Pods-SnowShoveling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnowShoveling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling.debug.xcconfig"; sourceTree = "<group>"; };
 		D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		D348A7C62222FD37003D2C95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D348A7C822230293003D2C95 /* SignupLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignupLogin.storyboard; sourceTree = "<group>"; };
 		D348A7CA22230999003D2C95 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
 		D35D29A222359A32006A895C /* miscHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miscHelpers.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 				D3AFF8A82198C6AA0087CB72 /* More.storyboard */,
 				D36C930A21613ED100708ECF /* Assets.xcassets */,
 				D36C930F21613ED100708ECF /* Info.plist */,
-				D348A7C62222FD37003D2C95 /* GoogleService-Info.plist */,
+				307E658622D4B0F4009018D8 /* GoogleService-Info.plist */,
 				D3F305CA2223491500805BFE /* globals.plist */,
 				D3F305CC2223493400805BFE /* plistHelperFuncs.swift */,
 			);
@@ -251,13 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3AFF8A92198C6AA0087CB72 /* More.storyboard in Resources */,
-				D348A7C72222FD37003D2C95 /* GoogleService-Info.plist in Resources */,
 				D36C930E21613ED100708ECF /* LaunchScreen.storyboard in Resources */,
 				D36C930B21613ED100708ECF /* Assets.xcassets in Resources */,
 				D3AFF8A72198C65C0087CB72 /* Dashboard.storyboard in Resources */,
 				D3F305CB2223491500805BFE /* globals.plist in Resources */,
 				D3FE3A2E216BDC01004C0140 /* TODO in Resources */,
 				D36C930921613ECC00708ECF /* Main.storyboard in Resources */,
+				307E658722D4B0F5009018D8 /* GoogleService-Info.plist in Resources */,
 				D348A7C922230293003D2C95 /* SignupLogin.storyboard in Resources */,
 				D3AFF8A521988DD40087CB72 /* JobSelection.storyboard in Resources */,
 			);
@@ -500,7 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 599X49MW5N;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SnowShoveling/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -520,7 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 599X49MW5N;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SnowShoveling/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

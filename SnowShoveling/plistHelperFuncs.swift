@@ -30,7 +30,7 @@ func loadPropertyList() throws -> [String:Any] {
     return plist
 }
 
-func writeToPlist(key:String, value:Any) {
+func writeToStorage(key:String, value:Any) {
     do {
         var dictionary = try loadPropertyList()
         dictionary[key] = value
@@ -41,7 +41,7 @@ func writeToPlist(key:String, value:Any) {
     }
 }
 
-func loadFromPlist(key:String) -> Any? {
+func loadFromStorage(key:String) -> Any? {
     do {
         let dictionary = try loadPropertyList()
         return dictionary[key]

@@ -16,7 +16,7 @@ class SignUpScreenViewController: UIViewController {
     var emailFieldOK = false
     var passwordFieldOK = false
     @IBOutlet weak var emailField: UITextField!
-    @IBAction func emailEditingEnded(_ sender: UITextField) {
+    @IBAction func emailValueChanged(_ sender: UITextField) {
         //prelim checks
         emailFieldOK = false
         guard let emailText = emailField.text, emailText != "" else {
@@ -37,17 +37,17 @@ class SignUpScreenViewController: UIViewController {
     }
     
     @IBOutlet weak var passwordField: UITextField!
-    @IBAction func passwordEditingEnded(_ sender: UITextField) {
+    @IBAction func passwordValueChanged(_ sender: UITextField) {
         passwordFieldOK = false
         guard let passwordText = passwordField.text, passwordText != "" else {
             sender.backgroundColor = .orange
             return
         }
         sender.backgroundColor = .green
-        passwordCheckEditingEnded(passwordField2)
+        passwordCheckValueChanged(passwordField2)
     }
     @IBOutlet weak var passwordField2: UITextField!
-    @IBAction func passwordCheckEditingEnded(_ sender: UITextField) {
+    @IBAction func passwordCheckValueChanged(_ sender: UITextField) {
         passwordFieldOK = false
         guard let passwordCheckText = passwordField2.text, passwordCheckText != "" else {
             sender.backgroundColor = .orange
@@ -92,7 +92,7 @@ class SignUpScreenViewController: UIViewController {
             }
             
             let uid = authResult.user.uid
-            writeToPlist(key: "UID", value: uid)
+            writeToStorage(key: "UID", value: uid)
             tempUserData.shared.uid = uid
             self.performSegue(withIdentifier: "moreInfo", sender: nil)
         }

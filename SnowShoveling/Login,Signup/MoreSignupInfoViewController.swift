@@ -51,7 +51,7 @@ class MoreSignupInfoViewController: UIViewController {
         let name = nameField.text!
         let pic = UIImage(named: "defaultProfilePic")!
         FirebaseService.shared.addUser(uid:uid, profilePic:pic, phoneNumber:intPhoneNum, name:name)
-        //writeToPlist(key: "userID", value: userID)
+        //writeToStorage(key: "userID", value: userID)
     }
     
     /*
