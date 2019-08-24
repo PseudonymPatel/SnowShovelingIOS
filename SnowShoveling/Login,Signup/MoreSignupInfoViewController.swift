@@ -12,8 +12,11 @@ import Firebase
 class MoreSignupInfoViewController: UIViewController {
 
     var nameFieldOK = false
+    var phoneNumberFieldOK = false
+    var uid:String!
+    
     @IBOutlet weak var nameField: UITextField!
-    @IBAction func nameFieldEditingEnded(_ sender: UITextField) {
+    @IBAction func nameFieldChanged(_ sender: UITextField) {
         nameFieldOK = false
         guard let nameText = nameField.text, nameText != "" else {
             sender.backgroundColor = .orange
@@ -24,9 +27,8 @@ class MoreSignupInfoViewController: UIViewController {
     }
     
     var intPhoneNum:Int!
-    var phoneNumberFieldOK = false
     @IBOutlet weak var phoneNumberField: UITextField!
-    @IBAction func phoneNumberEditingEnded(_ sender: UITextField) {
+    @IBAction func phoneNumberChanged(_ sender: UITextField) {
         phoneNumberFieldOK = false
         guard let phoneNumberText = phoneNumberField.text, phoneNumberText != "" else {
             sender.backgroundColor = .orange
@@ -34,7 +36,14 @@ class MoreSignupInfoViewController: UIViewController {
         }
         sender.backgroundColor = .green
         phoneNumberFieldOK = true
-        intPhoneNum = Int(phoneNumberText.filter("01234567890".contains))!
+        var phoneString = ""
+        for char in phoneNumberText {
+            let charAsInt = Int(String(char)) //sees if char is an Int or not
+            if charAsInt != nil {
+                phoneString += String(char)
+            }
+        }
+        intPhoneNum = Int(phoneString)!
     }
     
     override func viewDidLoad() {
@@ -43,15 +52,41 @@ class MoreSignupInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func goButton(_ sender: Any) {
+    @IBAction func goButton(_ sender: UIButton) {
         guard phoneNumberFieldOK && nameFieldOK else {
             return
         }
-        let uid = tempUserData.shared.uid!
+        sender.isUserInteractionEnabled = false
+        let email:String? = KeychainWrapper.standard.string(forKey: "email")
+        let password:String? = KeychainWrapper.standard.string(forKey: "password")
+        
+        guard let upassword = password, let uemail = email else {
+            print("email or password not found when making account")
+            return
+        }
+        
         let name = nameField.text!
         let pic = UIImage(named: "defaultProfilePic")!
-        FirebaseService.shared.addUser(uid:uid, profilePic:pic, phoneNumber:intPhoneNum, name:name)
-        //writeToStorage(key: "userID", value: userID)
+        
+        //create auth account with the creds
+        print("creating auth account:")
+        FirebaseService.shared.createAuthAccount(withEmail: uemail, withPassword: upassword) { (uid) in
+            let isUidStored:Bool = KeychainWrapper.standard.set(uid, forKey: "uid")
+            self.uid = uid
+            if !isUidStored {
+                print("Could not store uid")
+            } else {
+                print("auth account created successfully")
+            }
+            
+            //now create a user in firestore
+            print("Creating user in database:")
+            FirebaseService.shared.addUser(uid:uid, profilePic:pic, phoneNumber:self.intPhoneNum, name:name)
+            
+            //go to next screen, no back button
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            self.performSegue(withIdentifier: "finish", sender: nil)
+        }
     }
     
     /*

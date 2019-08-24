@@ -9,6 +9,7 @@
 
 import UIKit
 import CoreLocation
+import FirebaseAuth
 
 class JobViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -21,6 +22,22 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //login
+        logIn: if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            guard let email = KeychainWrapper.standard.string(forKey: "email"), let password = KeychainWrapper.standard.string(forKey: "password") else {
+                print("could not get email and password for user")
+                break logIn
+            }
+            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+                if let error = error {
+                    print("error logging in user: \(error)")
+                    return
+                }
+                print("logged in user!")
+            }
+        }
+        
         jobTableView.dataSource = self
         jobTableView.delegate = self
         reloadJobs()

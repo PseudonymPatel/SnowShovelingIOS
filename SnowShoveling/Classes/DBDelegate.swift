@@ -82,7 +82,7 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
                 }
                 
                 self.dispatchGroup.enter()
-                self.getUser(id: document.get("userID") as! String) {user in
+                self.getUser(id: document.get("uid") as! String) {user in
                     self.jobArray.append(Job(jobID: jobID, user:user, loc: location, date: date, note: note, drivewayType: drivewayType))
                     self.dispatchGroup.leave()
                 }
@@ -112,10 +112,10 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
             
             let gottenName = document.get("name") as! String
             let gottenRatingAvg = document.get("ratingAvg") as! Double
-            let userID = document.documentID
+            let uid = document.get("uid") as! String
             let gottenPhoneNum = document.get("phoneNumber") as! Int
             
-            completion(User(userID: userID, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum))
+            completion(User(uid: uid, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum))
             
             //TODO:profilePic
             //need to handle profile pic
@@ -125,7 +125,7 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
     }
 
     func getDefaultUser() -> User {
-        let user1 = User(userID: "0", name: "exampleUser...", profilePic: #imageLiteral(resourceName: "defaultProfilePic"), ratingAvg: 0, phoneNum: 1234567890)
+        let user1 = User(uid: "0", name: "exampleUser...", profilePic: #imageLiteral(resourceName: "defaultProfilePic"), ratingAvg: 0, phoneNum: 1234567890)
         user1.ratingArray.addRating(title: "example reviews...", stars: 0, description: "Please wait. Loading reviews... Please refresh.")
         return user1
     }
@@ -178,7 +178,7 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
             "drivewayType":job.drivewayType,
             "location":GeoPoint(latitude:job.location.coordinate.latitude, longitude:job.location.coordinate.longitude),
             "note":job.note,
-            "userID":job.user.userID ]
+            "uid":job.user.uid ]
         var ref: DocumentReference?
         ref = db.collection("Jobs").addDocument(data: jobDecomp) { err in
             if let err = err {
@@ -202,10 +202,10 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
             
             let gottenName = document.get("name") as! String
             let gottenRatingAvg = document.get("ratingAvg") as! Double
-            let userID = document.documentID
+            let uid = document.documentID
             let gottenPhoneNum = document.get("phoneNumber") as! Int
             
-            jobToModify.user = User(userID: userID, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum)
+            jobToModify.user = User(uid: uid, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum)
             
             
             //TODO:profilePic
@@ -222,17 +222,28 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
                 return
             }
             
-//            guard user == nil else {
-//                print("No user to get ratings of")
-//                return
-//            }
-            
             for doc in querySnapshot!.documents {
                 let ratingBit = (title:doc.get("title") as! String,
                                  stars:doc.get("stars") as! Int,
                                  description:doc.get("description") as! String)
                 jobToModify.user.ratingArray.addRating(rating: ratingBit)
             }
+        }
+    }
+    
+    func createAuthAccount(withEmail email:String, withPassword password:String, completion:@escaping (_ uid:String) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("Problem creating account: \(error)")
+                return
+            }
+            guard let authResult = authResult else {
+                return
+            }
+            
+            //set the info inside of app
+            let uid = authResult.user.uid
+            completion(uid)
         }
     }
 }//end of dbdelegate

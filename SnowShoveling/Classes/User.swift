@@ -8,31 +8,16 @@
 
 import UIKit
 
-//this class is for storing temporary data as the user progresses through the sign up page.
-class tempUserData {
-    static let shared = tempUserData()
-    
-    var uid:String? //not userID, which is the name of the document.
-//    var name:String?
-//    var profilePic:UIImage?
-//    var phoneNumber:Int?
-    
-    init() {
-        
-    }
-}
-
-
 class User {
-    let userID:String
+    let uid:String
     let name:String
     let profilePic:UIImage
     let ratingAvg:Double
     var ratingArray:Ratings = Ratings()
     let phoneNumber:Int
     
-    init(userID:String, name:String, profilePic:UIImage, ratingAvg:Double, phoneNum:Int) {
-        self.userID = userID
+    init(uid:String, name:String, profilePic:UIImage, ratingAvg:Double, phoneNum:Int) {
+        self.uid = uid
         self.name = name
         self.profilePic = profilePic
         self.ratingAvg = ratingAvg

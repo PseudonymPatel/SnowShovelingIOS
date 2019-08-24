@@ -17,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         _ = FirebaseService.shared
+        
+        
+        //set a nice var for UserDefaults to save typing
+        let defaults = UserDefaults.standard
+        
+        //if this is the first time, do first time setup
+        if defaults.bool(forKey: "hasDoneFirstTimeSetup") == false {
+            
+            defaults.set(false, forKey: "isLoggedIn")
+            
+            // LASTLY, set hasDoneFirstTimeSetup flag to true
+            defaults.set(true, forKey: "hasDoneFirstTimeSetup")
+        }
+        
         return true
     }
 

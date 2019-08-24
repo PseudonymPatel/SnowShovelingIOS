@@ -29,7 +29,7 @@ class AddListingViewController: UIViewController {
         guard noteField.text != "" && noteField.text != nil else {
             return
         }
-        let createdJob = Job(jobID: "tempJob", user: User(userID: "template", name: "template", profilePic: UIImage(), ratingAvg: 1, phoneNum: 1) , loc: CLLocation(latitude: 12, longitude: 12), date: datePicker.date, note: noteField.text!, drivewayType: drivewayTypeField.text!)
+        let createdJob = Job(jobID: "tempJob", user: User(uid: "template", name: "template", profilePic: UIImage(), ratingAvg: 1, phoneNum: 1) , loc: CLLocation(latitude: 12, longitude: 12), date: datePicker.date, note: noteField.text!, drivewayType: drivewayTypeField.text!)
         FirebaseService.shared.addJob(job: createdJob) {
             print("job added successfully")
         }

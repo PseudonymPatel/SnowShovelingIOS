@@ -12,6 +12,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -22,11 +23,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="8Kc-f9-5zq" kind="relationship" relationship="viewControllers" id="PRh-hS-wqn"/>
-                        <segue destination="jGi-EP-nUr" kind="relationship" relationship="viewControllers" id="D5v-VG-lMy"/>
                         <segue destination="KX3-KR-TCN" kind="relationship" relationship="viewControllers" id="5hj-xA-C8D"/>
+                        <segue destination="jGi-EP-nUr" kind="relationship" relationship="viewControllers" id="D5v-VG-lMy"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1196" y="847"/>
         </scene>
@@ -63,8 +63,8 @@
     </scenes>
     <resources>
         <image name="tabbar1" width="30" height="30"/>
-        <image name="tabbar1Selected" width="30" height="30"/>
-        <image name="tabbar2" width="30" height="30"/>
-        <image name="tabbar2Selected" width="30" height="30"/>
+        <image name="tabbar1Selected" width="60" height="60"/>
+        <image name="tabbar2" width="60" height="60"/>
+        <image name="tabbar2Selected" width="60" height="60"/>
     </resources>
 </document>

@@ -27,12 +27,17 @@ class LoginScreenViewController: UIViewController {
         }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
             if let error = error { //do sth if error
-                sender.setTitle("Error: \(error)", for: UIControl.State.normal)
+                print("Error: \(error)")
             }
             
-            guard self != nil else { return }
+            guard user != nil else { return }
             print("successfully logged in user!")
             sender.setTitle("Logged In!", for: UIControl.State.normal)
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            
+            KeychainWrapper.standard.set(email, forKey: "email")
+            KeychainWrapper.standard.set(password, forKey:"password")
+            self!.performSegue(withIdentifier: "gotoMain", sender: nil)
         }
     }
     
