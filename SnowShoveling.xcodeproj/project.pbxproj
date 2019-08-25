@@ -90,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		302A57412312C77B00DF719A /* JobScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D3FE3A2F216BE246004C0140 /* JobViewController.swift */,
+				D3AFF8A421988DD40087CB72 /* JobSelection.storyboard */,
+			);
+			path = JobScreen;
+			sourceTree = "<group>";
+		};
 		306DCFC923107B3E00C36A4F /* KeychainWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,19 +160,17 @@
 		D36C930021613ECC00708ECF /* SnowShoveling */ = {
 			isa = PBXGroup;
 			children = (
+				302A57412312C77B00DF719A /* JobScreen */,
 				306DCFC923107B3E00C36A4F /* KeychainWrapper */,
 				D35D29A42235A046006A895C /* Login,Signup */,
 				D3A856A62210F6890088E04A /* Dashboard */,
 				D3D936D921851004001BD329 /* Classes */,
 				D3FE3A31216BE25E004C0140 /* SecondTab */,
 				D36C930121613ECC00708ECF /* AppDelegate.swift */,
-				D3FE3A2F216BE246004C0140 /* JobViewController.swift */,
 				D36C930321613ECC00708ECF /* FirstViewController.swift */,
 				D36C93172161444100708ECF /* ThirdViewController.swift */,
 				D36C930721613ECC00708ECF /* Main.storyboard */,
 				D36C930C21613ED100708ECF /* LaunchScreen.storyboard */,
-				D3AFF8A62198C65C0087CB72 /* Dashboard.storyboard */,
-				D3AFF8A421988DD40087CB72 /* JobSelection.storyboard */,
 				D3AFF8A82198C6AA0087CB72 /* More.storyboard */,
 				D36C930A21613ED100708ECF /* Assets.xcassets */,
 				D36C930F21613ED100708ECF /* Info.plist */,
@@ -175,6 +182,7 @@
 		D3A856A62210F6890088E04A /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				D3AFF8A62198C65C0087CB72 /* Dashboard.storyboard */,
 				D3A856A72210F6C30088E04A /* MainDashboardViewController.swift */,
 				D3A856A92210F6D50088E04A /* AddListingViewController.swift */,
 			);

@@ -37,7 +37,7 @@ class LoginScreenViewController: UIViewController {
             
             KeychainWrapper.standard.set(email, forKey: "email")
             KeychainWrapper.standard.set(password, forKey:"password")
-            self!.performSegue(withIdentifier: "gotoMain", sender: nil)
+            self!.performSegue(withIdentifier: "unwindToJobScreen", sender: nil)
         }
     }
     

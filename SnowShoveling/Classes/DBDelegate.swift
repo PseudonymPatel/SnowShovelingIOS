@@ -18,10 +18,6 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
     let db = Firestore.firestore()
     let dispatchGroup = DispatchGroup()
     
-    //-------------------------------------------------------
-    final let needExampleData = false //THIS SHOULD ONLY BE TICKED IF THE DATABASE SHOULD NOT BE USED!!
-    //-------------------------------------------------------
-    
     init() {
         //FirebaseApp.configure()
         let settings = db.settings
@@ -38,11 +34,9 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
     func getAllJobs() {
         //this function queries the database and storage for an array of all jobs available according to parameters. DOES NOT RETURN
         //TODO: create the parameters so filtering works better: just do radius, can filter other things in-app.
-        if needExampleData { //needExampleData
-            //create a bunch of example jobs to populate table as example.
-            jobArray += [] //need to create.
-            return
-        }
+        
+        //if we are getting all jobs, first clear old data
+        jobArray = []
         
         //THE DATABASE CODE
         let jobs = db.collection("Jobs").limit(to: 50)
@@ -81,11 +75,7 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
                     drivewayType = tempDriveType as! String
                 }
                 
-                self.dispatchGroup.enter()
-                self.getUser(id: document.get("uid") as! String) {user in
-                    self.jobArray.append(Job(jobID: jobID, user:user, loc: location, date: date, note: note, drivewayType: drivewayType))
-                    self.dispatchGroup.leave()
-                }
+                self.jobArray.append(Job(jobID: jobID, uid: document.get("uid") as! String, loc: location, date: date, note: note, drivewayType: drivewayType))
             }
             self.dispatchGroup.leave()
         }
@@ -97,37 +87,36 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
     
     
     
-    func getUser(id userID:String, completion:@escaping (_ user:User) -> Void) { //will return the user requested, otherwise nil
+    func getUser(forJob job:Job, uid userID:String, completion:@escaping (_ user:User) -> Void) { //will return the user requested, otherwise nil
         //get user stuff
-        if needExampleData {
-            completion(getDefaultUser())
-        } //end of needExampleData
-        let userRef = db.collection("Users").document(userID) //gets the reference to the doc
         
-        userRef.getDocument { (document, error) in
-            guard let document = document, document.exists else {
-                completion(self.getDefaultUser())
+        let search = db.collection("Users").whereField("uid", isEqualTo: userID) //gets the reference to the doc
+        
+        search.getDocuments { (documents, error) in
+            if let error = error {
+                print("Error getting user: \(error)")
+            }
+            guard let documents = documents else {
+                print("Error: could not get document")
                 return
             }
             
+            for document in documents.documents {
             let gottenName = document.get("name") as! String
-            let gottenRatingAvg = document.get("ratingAvg") as! Double
+            var gottenRatingAvg = document.get("ratingAvg") as! Double
             let uid = document.get("uid") as! String
             let gottenPhoneNum = document.get("phoneNumber") as! Int
             
-            completion(User(uid: uid, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum))
+            let gottenUser = User(uid: uid, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum)
+            
+            job.user = gottenUser
+            completion(gottenUser)
             
             //TODO:profilePic
             //need to handle profile pic
             //need to remember where to put things when they scale.
-        
+            }
         }
-    }
-
-    func getDefaultUser() -> User {
-        let user1 = User(uid: "0", name: "exampleUser...", profilePic: #imageLiteral(resourceName: "defaultProfilePic"), ratingAvg: 0, phoneNum: 1234567890)
-        user1.ratingArray.addRating(title: "example reviews...", stars: 0, description: "Please wait. Loading reviews... Please refresh.")
-        return user1
     }
     
     func getReviews(userToModify:User, userRef:DocumentReference, completion:@escaping () -> Void) {
@@ -156,7 +145,7 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
         db.collection("Users").addDocument(data: [
             "name": name,
             "phoneNumber": phoneNumber,
-            "ratingAvg": "0",
+            "ratingAvg": 0,
             "profilePic": "/userImages/default.jpeg",
             "uid": uid
         ]) { err in
@@ -175,10 +164,10 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
     func addJob(job:Job, completion:@escaping () -> Void) {
         let jobDecomp:[String:Any] = [
             "date":Timestamp(date: job.date),
-            "drivewayType":job.drivewayType,
+            "drivewayType":job.drivewayType as Any,
             "location":GeoPoint(latitude:job.location.coordinate.latitude, longitude:job.location.coordinate.longitude),
-            "note":job.note,
-            "uid":job.user.uid ]
+            "note":job.note as Any,
+            "uid":job.uid ]
         var ref: DocumentReference?
         ref = db.collection("Jobs").addDocument(data: jobDecomp) { err in
             if let err = err {
@@ -191,45 +180,47 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
     }
     
     
-    
-    private func getUserInfoFromReference(_ document:DocumentReference, _ jobToModify:Job, completion:@escaping () -> Void) { //works asyncronously -- see diagram on paper.
-        document.getDocument { (document, error) in
-            
-            guard let document = document, document.exists else {
-                completion()
-                return
-            }
-            
-            let gottenName = document.get("name") as! String
-            let gottenRatingAvg = document.get("ratingAvg") as! Double
-            let uid = document.documentID
-            let gottenPhoneNum = document.get("phoneNumber") as! Int
-            
-            jobToModify.user = User(uid: uid, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum)
-            
-            
-            //TODO:profilePic
-            //need to handle profile pic
-            //need to remember where to put things when they scale.
-            
-        }
-        
-        document.collection("ratings").getDocuments() { (querySnapshot, error) in
-            
-            guard error != nil else {
-                print("ERROR trying to get ratings of user.")
-                completion()
-                return
-            }
-            
-            for doc in querySnapshot!.documents {
-                let ratingBit = (title:doc.get("title") as! String,
-                                 stars:doc.get("stars") as! Int,
-                                 description:doc.get("description") as! String)
-                jobToModify.user.ratingArray.addRating(rating: ratingBit)
-            }
-        }
-    }
+    ///****************
+    // ****************
+    ///****************
+//    private func getUserInfoFromReference(_ document:DocumentReference, _ jobToModify:Job, completion:@escaping () -> Void) { //works asyncronously -- see diagram on paper.
+//        document.getDocument { (document, error) in
+//
+//            guard let document = document, document.exists else {
+//                completion()
+//                return
+//            }
+//
+//            let gottenName = document.get("name") as! String
+//            let gottenRatingAvg = document.get("ratingAvg") as! Double
+//            let uid = document.documentID
+//            let gottenPhoneNum = document.get("phoneNumber") as! Int
+//
+//            jobToModify.user = User(uid: uid, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum)
+//
+//
+//            //TODO:profilePic
+//            //need to handle profile pic
+//            //need to remember where to put things when they scale.
+//
+//        }
+//
+//        document.collection("ratings").getDocuments() { (querySnapshot, error) in
+//
+//            guard error != nil else {
+//                print("ERROR trying to get ratings of user.")
+//                completion()
+//                return
+//            }
+//
+//            for doc in querySnapshot!.documents {
+//                let ratingBit = (title:doc.get("title") as! String,
+//                                 stars:doc.get("stars") as! Int,
+//                                 description:doc.get("description") as! String)
+//                jobToModify.user.ratingArray.addRating(rating: ratingBit)
+//            }
+//        }
+//    }
     
     func createAuthAccount(withEmail email:String, withPassword password:String, completion:@escaping (_ uid:String) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in

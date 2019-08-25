@@ -21,6 +21,17 @@ class AddListingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //if keyboard is open, close it here
+    @IBAction func closeKeyboard(_ sender: UISwipeGestureRecognizer) {
+        print("swipeGestureRegistered")
+        if noteField.canResignFirstResponder {
+            noteField.resignFirstResponder()
+        }
+        if drivewayTypeField.canResignFirstResponder {
+            drivewayTypeField.resignFirstResponder()
+        }
+    }
+    
     @IBAction func addListingButton(_ sender: UIButton) {
         guard drivewayTypeField.text != "" && drivewayTypeField.text != nil else {
             print("No drivewayType specified")
@@ -29,9 +40,15 @@ class AddListingViewController: UIViewController {
         guard noteField.text != "" && noteField.text != nil else {
             return
         }
-        let createdJob = Job(jobID: "tempJob", user: User(uid: "template", name: "template", profilePic: UIImage(), ratingAvg: 1, phoneNum: 1) , loc: CLLocation(latitude: 12, longitude: 12), date: datePicker.date, note: noteField.text!, drivewayType: drivewayTypeField.text!)
+        guard UserDefaults.standard.bool(forKey: "isLoggedIn"), let uid = KeychainWrapper.standard.string(forKey: "uid") else {
+            print("user not signed in")
+            return
+        }
+        
+        let createdJob = Job(jobID: "tempJob", uid:uid, loc: CLLocation(latitude: 12, longitude: 12), date: datePicker.date, note: noteField.text!, drivewayType: drivewayTypeField.text!)
         FirebaseService.shared.addJob(job: createdJob) {
             print("job added successfully")
+            self.performSegue(withIdentifier: "unwindToDashboard", sender: nil)
         }
     }
     

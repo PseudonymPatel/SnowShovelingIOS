@@ -27,13 +27,29 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLabel.text = jobToDisplay.user.name
-        print("printing name")
-        print(jobToDisplay.user.name)
-        userProfilePic?.image = jobToDisplay.user.profilePic
-        //distanceLabel.currentAtributedtitle = "..."
-        rating.starCount = Int(jobToDisplay.user.ratingAvg)
-        phoneNumberLabel.text = prettyPrint(phoneNumber: jobToDisplay.user.phoneNumber)
+        
+        //check if user stuff has been generated, otherwise, generate
+        if let user = jobToDisplay.user {
+            nameLabel.text = user.name
+            userProfilePic?.image = user.profilePic
+            rating.starCount = Int((user.ratingAvg))
+            phoneNumberLabel.text = prettyPrint(phoneNumber: user.phoneNumber)
+        } else {
+            //display placeholders
+            nameLabel.text = "loading..."
+            userProfilePic?.image = UIImage(named: "defaultProfilePic")
+            rating.starCount = 0
+            phoneNumberLabel.text = "loading..."
+            
+            //get the user from database
+            FirebaseService.shared.getUser(forJob: jobToDisplay, uid: jobToDisplay.uid) { (user) in
+                //fill in actual text for the user
+                self.nameLabel.text = user.name
+                self.userProfilePic?.image = user.profilePic
+                self.rating.starCount = Int((user.ratingAvg))
+                self.phoneNumberLabel.text = prettyPrint(phoneNumber: user.phoneNumber)
+            }
+        }
         
         // Do any additional setup after loading the view.
     }

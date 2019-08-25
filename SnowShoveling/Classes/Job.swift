@@ -35,11 +35,13 @@ class Job {
     var date:Date
     var note:String?
     
-    //user related quick info (all but detailed ratings)
-    var user:User = FirebaseService.shared.getDefaultUser()
+    var uid:String
+    
+    //user will be gotten as needed.
+    var user:User?
     
     //init with user gotten
-    init(jobID:String, user:User, loc:CLLocation, date:Date, note:String, drivewayType:String) {
+    init(jobID:String, uid:String, loc:CLLocation, date:Date, note:String, drivewayType:String) {
         
         // Initialize stored properties.
         self.jobID = jobID
@@ -48,7 +50,7 @@ class Job {
         self.date = date
         self.note = note
         self.drivewayType = drivewayType
-        self.user = user
+        self.uid = uid
     }//end of init
     
 } //end of job class

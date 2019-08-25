@@ -25,6 +25,7 @@ class SignOutViewController: UIViewController {
                 print("Error signing out: %@", signOutError)
             }
             UserDefaults.standard.set(false, forKey: "isLoggedIn")
+            self.performSegue(withIdentifier: "unwindToJobScreen", sender: nil)
         }
     }
     

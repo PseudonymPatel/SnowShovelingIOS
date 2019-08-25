@@ -16,32 +16,29 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
        
     @IBOutlet var jobTableView: UITableView!
     
-    
-    var jobs = [Job]()
     var hasLoaded = false
-    var dbDelegate = FirebaseService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //login
-        logIn: if UserDefaults.standard.bool(forKey: "isLoggedIn") {
-            guard let email = KeychainWrapper.standard.string(forKey: "email"), let password = KeychainWrapper.standard.string(forKey: "password") else {
-                print("could not get email and password for user")
-                break logIn
-            }
-            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-                if let error = error {
-                    print("error logging in user: \(error)")
-                    return
-                }
-                print("logged in user!")
-            }
-        }
+        //login not neccesary b/c user stays logged in.
+//        logIn: if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+//            guard let email = KeychainWrapper.standard.string(forKey: "email"), let password = KeychainWrapper.standard.string(forKey: "password") else {
+//                print("could not get email and password for user")
+//                break logIn
+//            }
+//            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+//                if let error = error {
+//                    print("error logging in user: \(error)")
+//                    return
+//                }
+//                print("logged in user!")
+//            }
+//        }
         
         jobTableView.dataSource = self
         jobTableView.delegate = self
-        if !hasLoaded {
+        if FirebaseService.shared.jobArray.count == 0 {
             reloadJobs()
         }
     }
@@ -58,11 +55,11 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jobs.count
+        return FirebaseService.shared.jobArray.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showDetail", sender: jobs[indexPath.row])
+        self.performSegue(withIdentifier: "showDetail", sender: FirebaseService.shared.jobArray[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,17 +76,37 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         }
         
         // Fetches the appropriate meal for the data source layout.
-        let job = jobs[indexPath.row]
+        let job = FirebaseService.shared.jobArray[indexPath.row]
 
         // Configure the cell...
-        cell.nameLabel.text = job.user.name
-        cell.photoImageView.image = job.user.profilePic
-        cell.ratingControl.rating = Int((job.user.ratingAvg)) //need to change to be able to handle DOUBLES!! cannot handle nil
-        //cell.drivewayTypeLabel.text = (job.drivewayType != nil) ? job.drivewayType : "not listed"
+        
+        //check if user has info, generate if need be
+        if let user = job.user {
+            cell.nameLabel.text = user.name
+            cell.photoImageView.image = user.profilePic
+            cell.ratingControl.rating = Int((user.ratingAvg))
+        } else {
+            //display placeholders
+            cell.nameLabel.text = "loading..."
+            cell.photoImageView.image = UIImage(named: "defaultProfilePic")
+            cell.ratingControl.rating = 0
+            
+            //get the user from database
+            FirebaseService.shared.getUser(forJob: job, uid: job.uid) { (user) in
+                //fill in actual text for the user
+                cell.nameLabel.text = user.name
+                cell.photoImageView.image = user.profilePic
+                cell.ratingControl.rating = Int((user.ratingAvg))
+            }
+        }
         
         return cell
     }
 
+    @IBAction func refreshJobs(_ sender: UIBarButtonItem) {
+        reloadJobs()
+    }
+    
     func reloadJobs() {
         
         //create sample locaton data
@@ -99,13 +116,16 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         //let photo2 = photo1
         //let photo3 = photo1
         
-        self.dbDelegate.getAllJobs()
-        dbDelegate.dispatchGroup.notify(queue: .main) {
-            self.jobs = self.dbDelegate.jobArray
+        FirebaseService.shared.getAllJobs()
+        FirebaseService.shared.dispatchGroup.notify(queue: .main) {
             self.jobTableView.reloadData()
             print("data loaded")
-            print("contents of table: \(self.jobs)")
         }
+    }
+    
+    @IBAction func unwindToJobScreen(_ unwindSegue: UIStoryboardSegue) {
+        //let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
     }
     
 }

@@ -22,6 +22,7 @@
                                 <rect key="frame" x="80" y="188" width="254" height="254"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="254" id="AEc-RK-WKz"/>
+                                    <constraint firstAttribute="width" secondItem="0IR-ch-gij" secondAttribute="height" multiplier="1:1" id="mGQ-gh-BJk"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWI-Fu-KDT">
@@ -54,9 +55,8 @@
                         <constraints>
                             <constraint firstItem="VWI-Fu-KDT" firstAttribute="bottom" secondItem="F3a-fY-d9S" secondAttribute="bottom" constant="-30" id="1wz-lS-dQq"/>
                             <constraint firstItem="VWI-Fu-KDT" firstAttribute="top" secondItem="7DC-5p-0eF" secondAttribute="bottom" constant="31" id="1zX-wT-J5t"/>
-                            <constraint firstItem="0IR-ch-gij" firstAttribute="leading" secondItem="F3a-fY-d9S" secondAttribute="leading" constant="80" id="NYm-Sf-tYd"/>
-                            <constraint firstItem="F3a-fY-d9S" firstAttribute="trailing" secondItem="0IR-ch-gij" secondAttribute="trailing" constant="80" id="VGf-8l-PiL"/>
-                            <constraint firstItem="0IR-ch-gij" firstAttribute="top" secondItem="F3a-fY-d9S" secondAttribute="top" constant="100" id="aOj-i3-KuG"/>
+                            <constraint firstItem="0IR-ch-gij" firstAttribute="centerX" secondItem="uw0-gf-5jQ" secondAttribute="centerX" id="CBT-Ev-4uP"/>
+                            <constraint firstItem="0IR-ch-gij" firstAttribute="top" secondItem="F3a-fY-d9S" secondAttribute="top" constant="100" id="HOM-Ag-h6D"/>
                             <constraint firstItem="VWI-Fu-KDT" firstAttribute="leading" secondItem="F3a-fY-d9S" secondAttribute="leading" id="iRC-DW-MHG"/>
                             <constraint firstItem="F3a-fY-d9S" firstAttribute="trailing" secondItem="VWI-Fu-KDT" secondAttribute="trailing" id="ptY-9X-nFS"/>
                             <constraint firstItem="7DC-5p-0eF" firstAttribute="leading" secondItem="uw0-gf-5jQ" secondAttribute="leading" id="uR0-h5-j6S"/>
@@ -64,12 +64,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F3a-fY-d9S"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yPd-Pa-pQy"/>
+                    <navigationItem key="navigationItem" id="yPd-Pa-pQy">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="QCM-PI-H9V">
+                            <connections>
+                                <segue destination="BfF-xH-zgg" kind="unwind" unwindAction="unwindToJobScreen:" id="QfZ-xZ-UMO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="XBL-ij-Q9L" kind="show" identifier="alreadyLoggedIn" id="lYG-sy-V6a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z50-1e-UY5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BfF-xH-zgg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-681.15942028985512" y="80.357142857142847"/>
         </scene>
@@ -197,35 +204,37 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <state key="normal" title="Go Back"/>
                                 <connections>
-                                    <segue destination="qrA-cg-mXH" kind="presentation" id="f6k-yz-2Ox"/>
+                                    <segue destination="Iqm-hF-KNd" kind="unwind" unwindAction="unwindToJobScreen:" id="far-bp-IIc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nS-F4-dTV">
-                                <rect key="frame" x="179" y="258" width="57" height="30"/>
+                                <rect key="frame" x="103" y="426" width="209" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <state key="normal" title="Sign out"/>
                                 <connections>
                                     <action selector="signOutButtonPressed:" destination="XBL-ij-Q9L" eventType="touchUpInside" id="dQF-g6-iAm"/>
-                                    <segue destination="qrA-cg-mXH" kind="showDetail" id="tuX-dK-yx3"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="X8Q-JK-WgI"/>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="F9w-Oo-wL7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wg8-sj-beS">
+                            <connections>
+                                <segue destination="Iqm-hF-KNd" kind="unwind" unwindAction="unwindToJobScreen:" id="Nvd-Ho-lfr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Iqm-hF-KNd" kind="unwind" identifier="unwindToJobScreen" unwindAction="unwindToJobScreen:" id="VgX-nk-Cvt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03j-uQ-Qtf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Iqm-hF-KNd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="556.52173913043487" y="1350.6696428571429"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="UQh-5F-jv8">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="qrA-cg-mXH" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RTW-JD-rRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1197" y="1367"/>
         </scene>
         <!--More Signup Info View Controller-->
         <scene sceneID="Nnm-oq-gYY">
@@ -338,9 +347,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nMh-rU-k8N"/>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="1kT-bx-IVU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="MfA-5s-3Ex">
+                            <connections>
+                                <segue destination="Omx-Rv-BYr" kind="unwind" unwindAction="unwindToJobScreen:" id="a3M-fh-D56"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QA0-oD-vIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Omx-Rv-BYr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2330" y="496"/>
         </scene>
@@ -406,20 +423,13 @@
                     <connections>
                         <outlet property="passwordField" destination="Q4W-zl-jek" id="BHR-4y-q4t"/>
                         <outlet property="usernameField" destination="6Gh-wh-8DW" id="055-ys-dS7"/>
-                        <segue destination="2zr-HZ-0uW" kind="show" identifier="gotoMain" id="HLX-9C-2CD"/>
+                        <segue destination="qk4-kc-YXr" kind="unwind" identifier="unwindToJobScreen" unwindAction="unwindToJobScreen:" id="gQR-fT-cvv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbT-Au-WrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qk4-kc-YXr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="678" y="-299"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="bbi-kB-fj9">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="2zr-HZ-0uW" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AMB-Ug-wXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1374" y="-390"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oIl-7G-jjn">
@@ -444,7 +454,4 @@
         <image name="circle" width="120" height="120"/>
         <image name="shovel" width="190.5" height="190.5"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="tuX-dK-yx3"/>
-    </inferredMetricsTieBreakers>
 </document>
