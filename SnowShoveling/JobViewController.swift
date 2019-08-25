@@ -18,6 +18,7 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     var jobs = [Job]()
+    var hasLoaded = false
     var dbDelegate = FirebaseService.shared
     
     override func viewDidLoad() {
@@ -40,7 +41,9 @@ class JobViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         jobTableView.dataSource = self
         jobTableView.delegate = self
-        reloadJobs()
+        if !hasLoaded {
+            reloadJobs()
+        }
     }
 
     override func didReceiveMemoryWarning() {

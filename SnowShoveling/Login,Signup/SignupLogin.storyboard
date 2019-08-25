@@ -169,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="556.52173913043487" y="495.53571428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Out View Controller-->
         <scene sceneID="HRI-gg-nOL">
             <objects>
-                <viewController id="XBL-ij-Q9L" sceneMemberID="viewController">
+                <viewController id="XBL-ij-Q9L" customClass="SignOutViewController" customModule="SnowShoveling" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mJh-9V-oVo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,6 +198,15 @@
                                 <state key="normal" title="Go Back"/>
                                 <connections>
                                     <segue destination="qrA-cg-mXH" kind="presentation" id="f6k-yz-2Ox"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nS-F4-dTV">
+                                <rect key="frame" x="179" y="258" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign out"/>
+                                <connections>
+                                    <action selector="signOutButtonPressed:" destination="XBL-ij-Q9L" eventType="touchUpInside" id="dQF-g6-iAm"/>
+                                    <segue destination="qrA-cg-mXH" kind="showDetail" id="tuX-dK-yx3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -435,4 +444,7 @@
         <image name="circle" width="120" height="120"/>
         <image name="shovel" width="190.5" height="190.5"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tuX-dK-yx3"/>
+    </inferredMetricsTieBreakers>
 </document>

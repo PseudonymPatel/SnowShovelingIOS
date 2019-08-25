@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		302371D82311E4160061EC8E /* LoginSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302371D72311E4160061EC8E /* LoginSignupViewController.swift */; };
+		302371DA231206970061EC8E /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302371D9231206970061EC8E /* SignOutViewController.swift */; };
 		306DCFCB23107B5300C36A4F /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DCFCA23107B5300C36A4F /* KeychainWrapper.swift */; };
 		306DCFCD23107B9900C36A4F /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DCFCC23107B9900C36A4F /* KeychainItemAccessibility.swift */; };
 		307E658722D4B0F5009018D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 307E658622D4B0F4009018D8 /* GoogleService-Info.plist */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		2180ACD351833323ADCEA643 /* Pods-SnowShoveling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnowShoveling.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling.release.xcconfig"; sourceTree = "<group>"; };
 		302371D72311E4160061EC8E /* LoginSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupViewController.swift; sourceTree = "<group>"; };
+		302371D9231206970061EC8E /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		306DCFCA23107B5300C36A4F /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		306DCFCC23107B9900C36A4F /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeychainItemAccessibility.swift; path = /Users/sheen/Documents/SnowShovelingIOS/SnowShoveling/KeychainWrapper/KeychainItemAccessibility.swift; sourceTree = "<absolute>"; };
 		307E658622D4B0F4009018D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				D3F305C82223294300805BFE /* SignUpScreenViewController.swift */,
 				D35D29A52235A95E006A895C /* MoreSignupInfoViewController.swift */,
 				302371D72311E4160061EC8E /* LoginSignupViewController.swift */,
+				302371D9231206970061EC8E /* SignOutViewController.swift */,
 			);
 			path = "Login,Signup";
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				D35D29A322359A32006A895C /* miscHelpers.swift in Sources */,
 				D36C930221613ECC00708ECF /* AppDelegate.swift in Sources */,
 				D348A7CB22230999003D2C95 /* LoginScreenViewController.swift in Sources */,
+				302371DA231206970061EC8E /* SignOutViewController.swift in Sources */,
 				D3FE3A33216BE486004C0140 /* Job.swift in Sources */,
 				306DCFCD23107B9900C36A4F /* KeychainItemAccessibility.swift in Sources */,
 				D3EFAE32216BA46200FE98C1 /* MapTableViewCell.swift in Sources */,
