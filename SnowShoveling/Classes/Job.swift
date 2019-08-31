@@ -23,8 +23,9 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
-class Job {
+class Job: NSObject, MKAnnotation {
     
     //let dbDelegate = FirebaseService.shared
     
@@ -34,6 +35,7 @@ class Job {
     var drivewayType:String?
     var date:Date
     var note:String?
+    var taken:Bool?
     
     var uid:String
     
@@ -52,5 +54,15 @@ class Job {
         self.drivewayType = drivewayType
         self.uid = uid
     }//end of init
-    
+	
+	var coordinate: CLLocationCoordinate2D {
+		return location.coordinate
+	}
+	var title: String? {
+		if let user = user {
+			return "\(user.name)'s Job"
+		} else {
+			return nil
+		}
+	}
 } //end of job class

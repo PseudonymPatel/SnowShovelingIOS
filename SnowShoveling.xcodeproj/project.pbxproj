@@ -12,6 +12,8 @@
 		306DCFCB23107B5300C36A4F /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DCFCA23107B5300C36A4F /* KeychainWrapper.swift */; };
 		306DCFCD23107B9900C36A4F /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DCFCC23107B9900C36A4F /* KeychainItemAccessibility.swift */; };
 		307E658722D4B0F5009018D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 307E658622D4B0F4009018D8 /* GoogleService-Info.plist */; };
+		30BA8CB1231AA33C00C6857F /* JobViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BA8CB0231AA33C00C6857F /* JobViewControllerDataSource.swift */; };
+		30BA8CB5231AA58E00C6857F /* JobViewControllerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BA8CB4231AA58E00C6857F /* JobViewControllerMapView.swift */; };
 		4683D1FF9C8D7D2E85B74981 /* Pods_SnowShoveling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520392853968EB90160AD222 /* Pods_SnowShoveling.framework */; };
 		D344B13D217CDC9B00AE7C02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */; };
 		D348A7C922230293003D2C95 /* SignupLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D348A7C822230293003D2C95 /* SignupLogin.storyboard */; };
@@ -47,6 +49,8 @@
 		306DCFCA23107B5300C36A4F /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		306DCFCC23107B9900C36A4F /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeychainItemAccessibility.swift; path = /Users/sheen/Documents/SnowShovelingIOS/SnowShoveling/KeychainWrapper/KeychainItemAccessibility.swift; sourceTree = "<absolute>"; };
 		307E658622D4B0F4009018D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		30BA8CB0231AA33C00C6857F /* JobViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewControllerDataSource.swift; sourceTree = "<group>"; };
+		30BA8CB4231AA58E00C6857F /* JobViewControllerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewControllerMapView.swift; sourceTree = "<group>"; };
 		520392853968EB90160AD222 /* Pods_SnowShoveling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnowShoveling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE1C5999DF995C6AE87CEA0 /* Pods-SnowShoveling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnowShoveling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnowShoveling/Pods-SnowShoveling.debug.xcconfig"; sourceTree = "<group>"; };
 		D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,11 @@
 			children = (
 				D3FE3A2F216BE246004C0140 /* JobViewController.swift */,
 				D3AFF8A421988DD40087CB72 /* JobSelection.storyboard */,
+				D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */,
+				D3A4B452216AC5E500C63887 /* FilterScreenTableViewController.swift */,
+				D3EFAE31216BA46200FE98C1 /* MapTableViewCell.swift */,
+				30BA8CB4231AA58E00C6857F /* JobViewControllerMapView.swift */,
+				30BA8CB0231AA33C00C6857F /* JobViewControllerDataSource.swift */,
 			);
 			path = JobScreen;
 			sourceTree = "<group>";
@@ -165,7 +174,6 @@
 				D35D29A42235A046006A895C /* Login,Signup */,
 				D3A856A62210F6890088E04A /* Dashboard */,
 				D3D936D921851004001BD329 /* Classes */,
-				D3FE3A31216BE25E004C0140 /* SecondTab */,
 				D36C930121613ECC00708ECF /* AppDelegate.swift */,
 				D36C930321613ECC00708ECF /* FirstViewController.swift */,
 				D36C93172161444100708ECF /* ThirdViewController.swift */,
@@ -199,16 +207,6 @@
 				D35D29A222359A32006A895C /* miscHelpers.swift */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		D3FE3A31216BE25E004C0140 /* SecondTab */ = {
-			isa = PBXGroup;
-			children = (
-				D344B13C217CDC9B00AE7C02 /* DetailViewController.swift */,
-				D3A4B452216AC5E500C63887 /* FilterScreenTableViewController.swift */,
-				D3EFAE31216BA46200FE98C1 /* MapTableViewCell.swift */,
-			);
-			path = SecondTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +334,7 @@
 				D3D936DB21851135001BD329 /* User.swift in Sources */,
 				D3D936D62185074F001BD329 /* DBDelegate.swift in Sources */,
 				D344B13D217CDC9B00AE7C02 /* DetailViewController.swift in Sources */,
+				30BA8CB1231AA33C00C6857F /* JobViewControllerDataSource.swift in Sources */,
 				D3A856A82210F6C30088E04A /* MainDashboardViewController.swift in Sources */,
 				D3F305C92223294300805BFE /* SignUpScreenViewController.swift in Sources */,
 				D35D29A62235A95E006A895C /* MoreSignupInfoViewController.swift in Sources */,
@@ -348,6 +347,7 @@
 				D348A7CB22230999003D2C95 /* LoginScreenViewController.swift in Sources */,
 				302371DA231206970061EC8E /* SignOutViewController.swift in Sources */,
 				D3FE3A33216BE486004C0140 /* Job.swift in Sources */,
+				30BA8CB5231AA58E00C6857F /* JobViewControllerMapView.swift in Sources */,
 				306DCFCD23107B9900C36A4F /* KeychainItemAccessibility.swift in Sources */,
 				D3EFAE32216BA46200FE98C1 /* MapTableViewCell.swift in Sources */,
 				D3A4B453216AC5E500C63887 /* FilterScreenTableViewController.swift in Sources */,
@@ -499,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 599X49MW5N;
 				INFOPLIST_FILE = SnowShoveling/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -519,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 599X49MW5N;
 				INFOPLIST_FILE = SnowShoveling/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;

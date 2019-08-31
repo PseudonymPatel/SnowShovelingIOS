@@ -125,6 +125,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="jobTableView" destination="k9O-aL-M4V" id="T0d-1Q-Tfg"/>
+                        <outlet property="mapView" destination="vL5-Vh-M24" id="DuW-CS-ZXd"/>
                         <segue destination="Ran-ub-4xW" kind="show" identifier="showDetail" id="VVV-H7-b7R"/>
                     </connections>
                 </viewController>
@@ -154,7 +155,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZg-ZD-ND7">
-                                <rect key="frame" x="20" y="381" width="164" height="34"/>
+                                <rect key="frame" x="20" y="371" width="164" height="44"/>
                                 <color key="backgroundColor" red="0.93480002719999999" green="0.97584735430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="zqm-Cf-RCe"/>
@@ -164,7 +165,7 @@
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="redraw" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1WC-2B-wvG" customClass="RatingControlEditable" customModule="SnowShoveling" customModuleProvider="target">
-                                <rect key="frame" x="192" y="381" width="220" height="34"/>
+                                <rect key="frame" x="192" y="371" width="220" height="44"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                         <integer key="value" value="5"/>
@@ -172,19 +173,19 @@
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydr-9X-cR5">
-                                <rect key="frame" x="20" y="423" width="143" height="26"/>
+                                <rect key="frame" x="20" y="423" width="143" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(000) 000 - 0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7J-qf-J7D">
-                                <rect key="frame" x="172" y="428" width="174" height="21"/>
+                                <rect key="frame" x="172" y="427.5" width="174" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rnw-xc-n9i">
-                                <rect key="frame" x="172" y="357" width="242" height="71"/>
+                                <rect key="frame" x="172" y="357" width="242" height="70.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="242" id="SF8-s5-VuT"/>
                                 </constraints>
@@ -207,7 +208,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Accept Job"/>
                                 <connections>
-                                    <action selector="acceptJob:" destination="Ran-ub-4xW" eventType="touchUpInside" id="2iX-84-nng"/>
+                                    <action selector="acceptJob:" destination="Ran-ub-4xW" eventType="touchUpInside" id="QMy-QL-oZ0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -245,9 +246,11 @@
                         <outlet property="phoneNumberLabel" destination="k7J-qf-J7D" id="oup-nw-M51"/>
                         <outlet property="rating" destination="1WC-2B-wvG" id="nFc-xW-fWx"/>
                         <outlet property="userProfilePic" destination="Hdy-Sw-WAt" id="Wki-mM-LNj"/>
+                        <segue destination="jAa-zw-saa" kind="unwind" identifier="unwindToJobScreen" unwindAction="unwindToJobScreen:" id="CdF-XP-hXN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDb-ZH-wNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jAa-zw-saa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2505.7971014492755" y="-19.419642857142858"/>
         </scene>

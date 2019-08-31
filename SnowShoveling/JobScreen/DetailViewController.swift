@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
 
     var jobToDisplay:Job!
-    
+	
     //user interface labels, user interface stuff.
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userProfilePic: UIImageView?
@@ -19,11 +20,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet weak var rating: RatingControlEditable!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     //@IBOutlet weak var ratingsTable: UITableView!
-    
-    
-    @IBAction func acceptJob(_ sender: UIButton) {
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,21 +50,56 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func acceptJob(_ sender: UIButton) {
+        
+        //check if user signed in
+        guard UserDefaults.standard.bool(forKey: "isLoggedIn") else {
+            print("user not logged in")
+            return
+        }
+        
+        //get the job
+        let jobRef = Firestore.firestore().collection("Jobs").document(jobToDisplay.jobID)
+        jobRef.updateData([
+            "claimedBy" : KeychainWrapper.standard.string(forKey: "uid")!
+        ]) { (error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            } else {
+                print("success on update doc")
+                self.jobToDisplay.taken = true
+                
+                //change properties of the button
+                sender.backgroundColor = .green
+                sender.isUserInteractionEnabled = false
+                sender.setAttributedTitle(NSAttributedString(string: "Job Taken"), for: .disabled)
+                
+                /// - TODO: In the future, move the user to the accepted jobs screen
+                
+                //remove from the array of jobs
+                for i in 0..<FirebaseService.shared.jobArray.count {
+                    if FirebaseService.shared.jobArray[i].jobID == self.jobToDisplay!.jobID {
+                        FirebaseService.shared.jobArray.remove(at: i)
+						self.performSegue(withIdentifier: "unwindToJobScreen", sender: nil)
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+		if segue.identifier == "unwindToJobScreen" {
+			(segue.destination as! JobViewController).refreshTableData()
+		}
     }
-    */
+
 
 }
 

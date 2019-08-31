@@ -39,7 +39,7 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
         jobArray = []
         
         //THE DATABASE CODE
-        let jobs = db.collection("Jobs").limit(to: 50)
+	let jobs = db.collection("Jobs").limit(to: 50).whereField("claimedBy", isEqualTo: "unclaimed")
         
         dispatchGroup.enter()
         jobs.getDocuments() { (querySnapshot, error) in
@@ -103,7 +103,7 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
             
             for document in documents.documents {
             let gottenName = document.get("name") as! String
-            var gottenRatingAvg = document.get("ratingAvg") as! Double
+            let gottenRatingAvg = document.get("ratingAvg") as! Double
             let uid = document.get("uid") as! String
             let gottenPhoneNum = document.get("phoneNumber") as! Int
             
@@ -122,8 +122,8 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
     func getReviews(userToModify:User, userRef:DocumentReference, completion:@escaping () -> Void) {
         
         userRef.collection("ratings").getDocuments() { (querySnapshot, error) in
-            if error != nil {
-                print("ERROR trying to get ratings of user, \(String(describing: error))")
+            if let error = error {
+                print("Error trying to get ratings of user, \(error)")
                 return
             }
             
