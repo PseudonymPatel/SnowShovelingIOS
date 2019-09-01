@@ -48,8 +48,8 @@ class AddListingViewController: UIViewController {
 		let location = CLLocation(latitude: 42.3370, longitude: -71.2092)
 		
 		
-        let createdJob = Job(jobID: "tempJob", uid:uid, loc: location, date: datePicker.date, note: noteField.text!, drivewayType: drivewayTypeField.text!)
-        FirebaseService.shared.addJob(job: createdJob) {
+        let createdJob = SnowJob(jobID: "tempJob", uid:uid, loc: location, date: datePicker.date, note: noteField.text!, drivewayType: drivewayTypeField.text!)
+        FirebaseService.shared.addSnowJob(job: createdJob) {
             print("job added successfully")
             self.performSegue(withIdentifier: "unwindToDashboard", sender: nil)
         }

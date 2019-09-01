@@ -32,7 +32,6 @@ class Job: NSObject, MKAnnotation {
     //properties
     var jobID:String
     var location: CLLocation //changed to CLLocation from CLPlacemark to make things easier.
-    var drivewayType:String?
     var date:Date
     var note:String?
     var taken:Bool?
@@ -43,7 +42,7 @@ class Job: NSObject, MKAnnotation {
     var user:User?
     
     //init with user gotten
-    init(jobID:String, uid:String, loc:CLLocation, date:Date, note:String, drivewayType:String) {
+    init(jobID:String, uid:String, loc:CLLocation, date:Date, note:String) {
         
         // Initialize stored properties.
         self.jobID = jobID
@@ -51,10 +50,10 @@ class Job: NSObject, MKAnnotation {
         self.location = loc
         self.date = date
         self.note = note
-        self.drivewayType = drivewayType
         self.uid = uid
     }//end of init
 	
+	//stuff for the mapView
 	var coordinate: CLLocationCoordinate2D {
 		return location.coordinate
 	}

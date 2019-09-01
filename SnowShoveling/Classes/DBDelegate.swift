@@ -11,35 +11,49 @@ import UIKit
 import Firebase
 import CoreLocation
 
-class FirebaseService { //if want jobs, call getJobs, then check jobArray
+///A class for any database-related services, providing easy access and safe results.
+class FirebaseService {
+	
+	///DO NOT TOUCH
     var doNotTouchThisThing:Void = FirebaseApp.configure()
-    static let shared = FirebaseService() //singleton
+	
+	///Creates a singleton to use when working with this class
+    static let shared = FirebaseService()
+	
+	///The array of all jobs that are being displayed
     var jobArray = [Job]()
+	
+	///shortcut to Firestore.firestore()
     let db = Firestore.firestore()
+	
+	///creates a dispatchgroup that is used for the getAllJobs method.
     let dispatchGroup = DispatchGroup()
-    
+	
+	///Inits the class for use right away.
     init() {
         //FirebaseApp.configure()
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
     }
-    
-    
-    
-    //--------------------------
-    
-    
-    
+
+	/**
+	Asyncronously Clears and repopulates the jobArray with all the jobs in the database, filtered by
+	unclaimed Jobs and limited to 50.
+
+	- TODO: Sort by range before limiting, so user can see most relevant to them.
+	- TODO: Make more efficient, try to avoid using dispatchGroups in favor of better practices, update the table from this function when finished loading.
+	- TODO: Apply this to other types of jobs, so it can get all not just SnowJobs
+	
+	- Warning: This function gets all the information asynchronously, it will leave the dispatchGroup when it is done loading all jobs. I think??
+	*/
     func getAllJobs() {
-        //this function queries the database and storage for an array of all jobs available according to parameters. DOES NOT RETURN
-        //TODO: create the parameters so filtering works better: just do radius, can filter other things in-app.
         
         //if we are getting all jobs, first clear old data
         jobArray = []
         
         //THE DATABASE CODE
-	let jobs = db.collection("Jobs").limit(to: 50).whereField("claimedBy", isEqualTo: "unclaimed")
+		let jobs = db.collection("Jobs").limit(to: 50).whereField("claimedBy", isEqualTo: "unclaimed")
         
         dispatchGroup.enter()
         jobs.getDocuments() { (querySnapshot, error) in
@@ -75,20 +89,41 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
                     drivewayType = tempDriveType as! String
                 }
                 
-                self.jobArray.append(Job(jobID: jobID, uid: document.get("uid") as! String, loc: location, date: date, note: note, drivewayType: drivewayType))
+                self.jobArray.append(SnowJob(jobID: jobID, uid: document.get("uid") as! String, loc: location, date: date, note: note, drivewayType: drivewayType))
             }
             self.dispatchGroup.leave()
         }
         
     }//end of getJobs()
     
-    
-    //-----------------------------
-    
-    
-    
+    /**
+	Gets a user from the provided userID and applies the information into the specified job as well as returning in the completion handler. Function works asynchronously.
+	
+	**Example:**
+	```
+	//example job:
+	let job = ...
+	
+	//put placeholder user text here...
+	
+	FirebaseService.shared.getUser(forJob: job, uid: job.uid) {
+		//update the placeholder text
+	}
+	
+	//code here will run *before* getUser
+	```
+	
+	- Precondition: The job does not yet have the user information applied to it (`job.user == nil`)
+
+	- TODO: Handle the profile picture
+	
+	- Parameters:
+		- forJob: Once gotten, user information will be added to this job to minimise database use and waiting time.
+		- uid: the uid (firebase uid) for the user. Database will search for this field.
+		- completion: a closure that has a parameter for the user that was just returned.
+		- user: the user that has just been gotten
+	*/
     func getUser(forJob job:Job, uid userID:String, completion:@escaping (_ user:User) -> Void) { //will return the user requested, otherwise nil
-        //get user stuff
         
         let search = db.collection("Users").whereField("uid", isEqualTo: userID) //gets the reference to the doc
         
@@ -111,15 +146,19 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
             
             job.user = gottenUser
             completion(gottenUser)
-            
-            //TODO:profilePic
-            //need to handle profile pic
-            //need to remember where to put things when they scale.
             }
         }
     }
-    
-    func getReviews(userToModify:User, userRef:DocumentReference, completion:@escaping () -> Void) {
+	
+	/**
+	Fills in the ratings for the user passed in.
+	
+	- Parameters:
+		- forUser: the user to modify once the ratings have been gotten
+		- userRef: a Firebase DocumentReference pointing towards the user's information in the database
+		- completion: a block of code that will execute after ratings have been successfully gotten
+	*/
+    func getReviews(forUser user:User, userRef:DocumentReference, completion:@escaping () -> Void) {
         
         userRef.collection("ratings").getDocuments() { (querySnapshot, error) in
             if let error = error {
@@ -131,26 +170,31 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
                 let ratingBit = (title:doc.get("title") as! String,
                                  stars:doc.get("stars") as! Int,
                                  description:doc.get("description") as! String)
-                userToModify.ratingArray.addRating(rating: ratingBit)
+                user.ratingArray.addRating(rating: ratingBit)
             }
+			completion()
         }
     }
-    
-    //-----------------------------
-    //-----------------------------
-    //WRITING TO DATABASE
-    
-    //called very few times per app download, because ideally only one user needs to be created per phone.
-    func addUser(uid:String, profilePic:UIImage, phoneNumber:Int, name:String) { //returns userID (document name)
+
+	/**
+	Adds a user to the database
+	
+	- Parameters:
+		- uid: the Firebase auth uid of the user that will be added.
+		- profilePic: the path to the user's profile pic. Not implemented and parameter is not used.
+		- phoneNumber: the integer phone number. Unformatted and any length
+		- name: the full name of the user, including spaces between names.
+	*/
+    func addUser(uid:String, profilePic:UIImage, phoneNumber:Int, name:String) {
         db.collection("Users").addDocument(data: [
             "name": name,
             "phoneNumber": phoneNumber,
             "ratingAvg": 0,
             "profilePic": "/userImages/default.jpeg",
             "uid": uid
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
+        ]) { error in
+            if let error = error {
+                print("Error writing document: \(error)")
             } else {
                 print("Document successfully written!")
             }
@@ -158,11 +202,17 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
 
     }
     
-    //-----------------------------
-    
-    //called much more, but never 2 at the same time (program in cooldown)
-    func addJob(job:Job, completion:@escaping () -> Void) {
+
+	/**
+	Adds a job of the SnowJob type to the database. Completion is called upon function success.
+	
+	- Parameters:
+		- job: the SnowJob that should be added to the database
+		- completion: a closure that is called when the function completes successfully.
+	*/
+    func addSnowJob(job:SnowJob, completion:@escaping () -> Void) {
         let jobDecomp:[String:Any] = [
+			"jobType":"snow",
             "date":Timestamp(date: job.date),
             "drivewayType":job.drivewayType as Any,
             "location":GeoPoint(latitude:job.location.coordinate.latitude, longitude:job.location.coordinate.longitude),
@@ -178,11 +228,8 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
             }
         }
     }
-    
-    
-    ///****************
-    // ****************
-    ///****************
+	
+	
 //    private func getUserInfoFromReference(_ document:DocumentReference, _ jobToModify:Job, completion:@escaping () -> Void) { //works asyncronously -- see diagram on paper.
 //        document.getDocument { (document, error) in
 //
@@ -221,7 +268,18 @@ class FirebaseService { //if want jobs, call getJobs, then check jobArray
 //            }
 //        }
 //    }
-    
+	
+	/**
+	Creates an Firebase Auth account (email and password type) and returns the uid in a closure.
+	
+	- Precondition: the email and password are plaintext and both fields are valid. Email has not been used before.
+	
+	- Parameters:
+		- withEmail: the email of the user, already validated and has not been used before
+		- withPassword: the password, in plaintext, of the user. Already validated
+		- completion: a closure that will execute upon successful adding of user to Firebase Auth.
+		- uid: the Firebase Auth uid of the user that has just been created. This should be immediately used to `addUser(...)`
+	*/
     func createAuthAccount(withEmail email:String, withPassword password:String, completion:@escaping (_ uid:String) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
