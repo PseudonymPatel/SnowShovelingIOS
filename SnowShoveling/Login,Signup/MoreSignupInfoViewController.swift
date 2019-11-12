@@ -81,11 +81,18 @@ class MoreSignupInfoViewController: UIViewController {
             
             //now create a user in firestore
             print("Creating user in database:")
-            FirebaseService.shared.addUser(uid:uid, profilePic:pic, phoneNumber:self.intPhoneNum, name:name)
-            
-            //go to next screen, no back button
-            UserDefaults.standard.set(true, forKey: "isLoggedIn")
-            self.performSegue(withIdentifier: "finish", sender: nil)
+			FirebaseService.shared.addUser(uid:uid, profilePic:pic, phoneNumber:self.intPhoneNum, name:name) {(error) in
+				guard let error = error else {
+					print("user created successfully")
+					//go to next screen, no back button
+					UserDefaults.standard.set(true, forKey: "isLoggedIn")
+					self.performSegue(withIdentifier: "finish", sender: nil)
+					return
+				}
+				
+				print("Error creating user account: \(error)")
+				//notify user.
+			}
         }
     }
     

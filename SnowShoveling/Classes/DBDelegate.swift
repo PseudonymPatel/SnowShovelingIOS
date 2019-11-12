@@ -177,15 +177,18 @@ class FirebaseService {
     }
 
 	/**
-	Adds a user to the database
+	Adds a user to the (Firestore) database
 	
 	- Parameters:
 		- uid: the Firebase auth uid of the user that will be added.
 		- profilePic: the path to the user's profile pic. Not implemented and parameter is not used.
 		- phoneNumber: the integer phone number. Unformatted and any length
 		- name: the full name of the user, including spaces between names.
+		- completion: a closure with a single optional String parameter: the error returned by Firestore.
+	
+	- Warning: Completion Closure is called asyncronously with a possible error message, be careful to wait for it.
 	*/
-    func addUser(uid:String, profilePic:UIImage, phoneNumber:Int, name:String) {
+	func addUser(uid:String, profilePic:UIImage, phoneNumber:Int, name:String, completion:@escaping (_ error:String?) -> Void) {
         db.collection("Users").addDocument(data: [
             "name": name,
             "phoneNumber": phoneNumber,
