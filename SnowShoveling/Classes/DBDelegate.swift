@@ -36,7 +36,7 @@ class FirebaseService {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
     }
-
+    
 	/**
 	Asyncronously Clears and repopulates the jobArray with all the jobs in the database, filtered by
 	unclaimed Jobs and limited to 50.
