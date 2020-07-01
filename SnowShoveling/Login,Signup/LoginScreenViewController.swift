@@ -13,15 +13,21 @@ class LoginScreenViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet var buttons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //round the corners of the buttons
+        for button in buttons {
+            button.layer.cornerRadius = 10
+            button.clipsToBounds = true
+        }
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
         guard let email = usernameField.text, let password = passwordField.text else {
+            // TODO: make notification
             print("no username or password!")
             return
         }
@@ -42,7 +48,6 @@ class LoginScreenViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
