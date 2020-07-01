@@ -19,7 +19,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet weak var distanceLabel: UIButton!
     @IBOutlet weak var rating: RatingControlEditable!
     @IBOutlet weak var phoneNumberLabel: UILabel!
-    //@IBOutlet weak var ratingsTable: UITableView!
+    @IBOutlet weak var drivewayTypeLabel: UILabel!
+    @IBOutlet weak var notesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,12 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             }
         }
         
+        notesLabel.text = jobToDisplay.note ?? "No note provided"
+        
+        if jobToDisplay is SnowJob {
+            let jobToDisplaySnow:SnowJob = jobToDisplay as! SnowJob
+            drivewayTypeLabel.text = jobToDisplaySnow.drivewayType
+        }
         // Do any additional setup after loading the view.
     }
 
