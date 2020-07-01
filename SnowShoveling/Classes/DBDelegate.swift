@@ -219,7 +219,8 @@ class FirebaseService {
             "drivewayType":job.drivewayType as Any,
             "location":GeoPoint(latitude:job.location.coordinate.latitude, longitude:job.location.coordinate.longitude),
             "note":job.note as Any,
-            "uid":job.uid ]
+            "uid":job.uid,
+            "claimedBy":"unclaimed" ]
         var ref: DocumentReference?
         ref = db.collection("Jobs").addDocument(data: jobDecomp) { err in
             if let err = err {
