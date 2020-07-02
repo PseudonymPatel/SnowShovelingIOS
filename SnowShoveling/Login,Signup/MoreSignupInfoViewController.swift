@@ -16,6 +16,8 @@ class MoreSignupInfoViewController: UIViewController {
     var uid:String!
     
     @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var buttonButton: UIButton! //TODO: rename this
+    
     @IBAction func nameFieldChanged(_ sender: UITextField) {
         nameFieldOK = false
         guard let nameText = nameField.text, nameText != "" else {
@@ -30,10 +32,24 @@ class MoreSignupInfoViewController: UIViewController {
     @IBOutlet weak var phoneNumberField: UITextField!
     @IBAction func phoneNumberChanged(_ sender: UITextField) {
         phoneNumberFieldOK = false
-        guard let phoneNumberText = phoneNumberField.text, phoneNumberText != "" else {
+        guard var phoneNumberText = phoneNumberField.text, phoneNumberText != "" else {
             sender.backgroundColor = .orange
             return
         }
+        
+        //remove the dashes and parenthesis that could be incl in phone number
+        phoneNumberText = phoneNumberText
+            .replacingOccurrences(of: "-", with: "")
+            .replacingOccurrences(of: "(", with: "")
+            .replacingOccurrences(of: ")", with: "")
+        
+        // TODO: sanitize the phone number input here!
+        guard Int(phoneNumberText) != nil else {
+            sender.backgroundColor = .orange
+            phoneNumberFieldOK = false
+            return
+        }
+        
         sender.backgroundColor = .green
         phoneNumberFieldOK = true
         var phoneString = ""
@@ -43,19 +59,37 @@ class MoreSignupInfoViewController: UIViewController {
                 phoneString += String(char)
             }
         }
-        intPhoneNum = Int(phoneString)!
+        
+        if let phoneString = Int(phoneString) {
+            intPhoneNum = phoneString
+        } else {
+            print("not a phone number")
+            phoneNumberFieldOK = false
+        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //round corners of button
+        buttonButton.layer.cornerRadius = 10
+        buttonButton.clipsToBounds = true
+        
         // Do any additional setup after loading the view.
     }
     
     @IBAction func goButton(_ sender: UIButton) {
         guard phoneNumberFieldOK && nameFieldOK else {
+            
+            //alert for user
+            let alert = UIAlertController(title: "Incorrect Fields", message: "One or more fields are not filled out correctly, please check them before you submit again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+
             return
         }
+        
         sender.isUserInteractionEnabled = false
         let email:String? = KeychainWrapper.standard.string(forKey: "email")
         let password:String? = KeychainWrapper.standard.string(forKey: "password")
@@ -86,12 +120,19 @@ class MoreSignupInfoViewController: UIViewController {
 					print("user created successfully")
 					//go to next screen, no back button
 					UserDefaults.standard.set(true, forKey: "isLoggedIn")
-					self.performSegue(withIdentifier: "finish", sender: nil)
-					return
+                    
+                    //message user that account successfully created.
+                    let alert = UIAlertController(title: "Account Successfully Created!", message: "Hi \(name), welcome to Yardies!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
+                    self.present(alert, animated: true) {
+                        self.performSegue(withIdentifier: "unwindToJobScreen", sender: nil)
+                    }
+                    
+                    return
 				}
 				
 				print("Error creating user account: \(error)")
-				//notify user.
+				// TODO: notify user.
 			}
         }
     }

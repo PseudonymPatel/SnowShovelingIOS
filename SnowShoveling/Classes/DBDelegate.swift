@@ -197,8 +197,10 @@ class FirebaseService {
         ]) { error in
             if let error = error {
                 print("Error writing document: \(error)")
+                completion(error.localizedDescription)
             } else {
                 print("Document successfully written!")
+                completion(nil)
             }
         }
 

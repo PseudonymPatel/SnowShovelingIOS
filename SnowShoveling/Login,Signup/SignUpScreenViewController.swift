@@ -20,6 +20,8 @@ class SignUpScreenViewController: UIViewController {
     var passwordSecure = false
     var email:String = ""
     
+    @IBOutlet weak var nextButton: UIButton!
+    
     @IBOutlet weak var emailField: UITextField!
     @IBAction func emailValueChanged(_ sender: UITextField) {
         //prelim checks
@@ -107,6 +109,10 @@ class SignUpScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //round corners of next button
+        nextButton.layer.cornerRadius = 10
+        nextButton.clipsToBounds = true
         
         //make the nav bar invisible!
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
