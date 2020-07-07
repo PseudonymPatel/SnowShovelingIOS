@@ -117,12 +117,12 @@ class FirebaseService {
 	- TODO: Handle the profile picture
 	
 	- Parameters:
-		- forJob: Once gotten, user information will be added to this job to minimise database use and waiting time.
+		- forJob: Once gotten, user information will be added to this job to minimise database use and waiting time. nil will just return the user in completion
 		- uid: the uid (firebase uid) for the user. Database will search for this field.
 		- completion: a closure that has a parameter for the user that was just returned.
 		- user: the user that has just been gotten
 	*/
-    func getUser(forJob job:Job, uid userID:String, completion:@escaping (_ user:User) -> Void) { //will return the user requested, otherwise nil
+    func getUser(forJob job:Job?, uid userID:String, completion:@escaping (_ user:User) -> Void) { //will return in closure the user requested, otherwise nil
         
         let search = db.collection("Users").whereField("uid", isEqualTo: userID) //gets the reference to the doc
         
@@ -136,15 +136,18 @@ class FirebaseService {
             }
             
             for document in documents.documents {
-            let gottenName = document.get("name") as! String
-            let gottenRatingAvg = document.get("ratingAvg") as! Double
-            let uid = document.get("uid") as! String
-            let gottenPhoneNum = document.get("phoneNumber") as! Int
+                let gottenName = document.get("name") as! String
+                let gottenRatingAvg = document.get("ratingAvg") as! Double
+                let uid = document.get("uid") as! String
+                let gottenPhoneNum = document.get("phoneNumber") as! Int
+                
+                let gottenUser = User(uid: uid, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum)
             
-            let gottenUser = User(uid: uid, name: gottenName, profilePic: UIImage(named: "defaultProfilePic")!, ratingAvg: gottenRatingAvg, phoneNum: gottenPhoneNum)
-            
-            job.user = gottenUser
-            completion(gottenUser)
+                if let job = job {
+                    job.user = gottenUser
+                }
+                
+                completion(gottenUser)
             }
         }
     }

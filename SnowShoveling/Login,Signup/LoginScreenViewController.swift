@@ -18,6 +18,12 @@ class LoginScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //check if the user is already logged in, if so, go to the already logged in screen
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            print("already logged in, redirecting!")
+            self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
+        }
+        
         //round the corners of the buttons
         for button in buttons {
             button.layer.cornerRadius = 10
@@ -40,6 +46,12 @@ class LoginScreenViewController: UIViewController {
             print("successfully logged in user!")
             sender.setTitle("Logged In!", for: UIControl.State.normal)
             UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            
+            // MARK: userdefaults set
+            //get the user and set some more Userdefaults for name, etc.
+            FirebaseService.shared.getUser(forJob: nil, uid: user!.user.uid) { (thisUser) in
+                UserDefaults.standard.set(thisUser.name, forKey: "name")
+            }
             
             KeychainWrapper.standard.set(email, forKey: "email")
             KeychainWrapper.standard.set(password, forKey:"password")
