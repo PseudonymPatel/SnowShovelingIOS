@@ -18,11 +18,15 @@ class LoginScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //check if the user is already logged in, if so, go to the already logged in screen
-        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
-            print("already logged in, redirecting!")
-            self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
-        }
+        //No one:
+        //Absolutely No one:
+        //Runtime error: uNrECoGnIZeD ErrOR sENt tO InSTaNCe
+        //solution:never have to get to this point so we don't have to worry about it.
+//        //check if the user is already logged in, if so, go to the already logged in screen
+//        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+//            print("already logged in, redirecting!")
+//            //self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
+//        }
         
         //round the corners of the buttons
         for button in buttons {
@@ -37,6 +41,13 @@ class LoginScreenViewController: UIViewController {
             print("no username or password!")
             return
         }
+        
+        guard email != "", password != "" else {
+            print("Username or Password not entered")
+            // TODO: make notification
+            return
+        }
+        
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
             if let error = error { //do sth if error
                 print("Error: \(error)")

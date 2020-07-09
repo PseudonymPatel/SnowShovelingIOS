@@ -59,6 +59,14 @@ class JobViewController: UIViewController {
         }
     }
     
+    @IBAction func ProfileButton(_ sender: UIBarButtonItem) {
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            self.performSegue(withIdentifier: "Profile", sender: nil)
+        } else {
+            self.performSegue(withIdentifier: "SignupLogin", sender: nil)
+        }
+    }
+    
     @IBAction func unwindToJobScreen(_ unwindSegue: UIStoryboardSegue) {
         //let sourceViewController = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue
