@@ -10,6 +10,8 @@
 		302371D82311E4160061EC8E /* LoginSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302371D72311E4160061EC8E /* LoginSignupViewController.swift */; };
 		302371DA231206970061EC8E /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302371D9231206970061EC8E /* SignOutViewController.swift */; };
 		304EE9BA231BEAB700AE7F74 /* SnowJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EE9B9231BEAB700AE7F74 /* SnowJob.swift */; };
+		3053CB5624B798F400AFF8E9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3053CB5524B798F400AFF8E9 /* Profile.storyboard */; };
+		3053CB5824B7992B00AFF8E9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3053CB5724B7992B00AFF8E9 /* ProfileViewController.swift */; };
 		3069078024ABBF1A00049683 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3069077F24ABBF1A00049683 /* GoogleService-Info.plist */; };
 		306DCFCB23107B5300C36A4F /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DCFCA23107B5300C36A4F /* KeychainWrapper.swift */; };
 		306DCFCD23107B9900C36A4F /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DCFCC23107B9900C36A4F /* KeychainItemAccessibility.swift */; };
@@ -48,6 +50,8 @@
 		302371D72311E4160061EC8E /* LoginSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupViewController.swift; sourceTree = "<group>"; };
 		302371D9231206970061EC8E /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		304EE9B9231BEAB700AE7F74 /* SnowJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowJob.swift; sourceTree = "<group>"; };
+		3053CB5524B798F400AFF8E9 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		3053CB5724B7992B00AFF8E9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3069077F24ABBF1A00049683 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		306DCFCA23107B5300C36A4F /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		306DCFCC23107B9900C36A4F /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeychainItemAccessibility.swift; path = /Users/sheen/Documents/SnowShovelingIOS/SnowShoveling/KeychainWrapper/KeychainItemAccessibility.swift; sourceTree = "<absolute>"; };
@@ -96,7 +100,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		302A57412312C77B00DF719A /* JobScreen */ = {
+		302A57412312C77B00DF719A /* JobScreen (main screen) */ = {
 			isa = PBXGroup;
 			children = (
 				D3FE3A2F216BE246004C0140 /* JobViewController.swift */,
@@ -107,7 +111,16 @@
 				30BA8CB4231AA58E00C6857F /* JobViewControllerMapView.swift */,
 				30BA8CB0231AA33C00C6857F /* JobViewControllerDataSource.swift */,
 			);
-			path = JobScreen;
+			path = "JobScreen (main screen)";
+			sourceTree = "<group>";
+		};
+		3053CB5424B798DF00AFF8E9 /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3053CB5524B798F400AFF8E9 /* Profile.storyboard */,
+				3053CB5724B7992B00AFF8E9 /* ProfileViewController.swift */,
+			);
+			path = "User Profile";
 			sourceTree = "<group>";
 		};
 		306DCFC923107B3E00C36A4F /* KeychainWrapper */ = {
@@ -171,7 +184,8 @@
 		D36C930021613ECC00708ECF /* SnowShoveling */ = {
 			isa = PBXGroup;
 			children = (
-				302A57412312C77B00DF719A /* JobScreen */,
+				3053CB5424B798DF00AFF8E9 /* User Profile */,
+				302A57412312C77B00DF719A /* JobScreen (main screen) */,
 				306DCFC923107B3E00C36A4F /* KeychainWrapper */,
 				D35D29A42235A046006A895C /* Login,Signup */,
 				D3A856A62210F6890088E04A /* Dashboard */,
@@ -282,6 +296,7 @@
 				D36C930921613ECC00708ECF /* Main.storyboard in Resources */,
 				D348A7C922230293003D2C95 /* SignupLogin.storyboard in Resources */,
 				D3AFF8A521988DD40087CB72 /* JobSelection.storyboard in Resources */,
+				3053CB5624B798F400AFF8E9 /* Profile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +371,7 @@
 				D3EFAE32216BA46200FE98C1 /* MapTableViewCell.swift in Sources */,
 				D3A4B453216AC5E500C63887 /* FilterScreenTableViewController.swift in Sources */,
 				D36C93182161444100708ECF /* ThirdViewController.swift in Sources */,
+				3053CB5824B7992B00AFF8E9 /* ProfileViewController.swift in Sources */,
 				306DCFCB23107B5300C36A4F /* KeychainWrapper.swift in Sources */,
 				D36C930421613ECC00708ECF /* FirstViewController.swift in Sources */,
 			);

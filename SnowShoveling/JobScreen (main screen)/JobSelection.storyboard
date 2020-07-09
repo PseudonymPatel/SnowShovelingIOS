@@ -106,6 +106,11 @@
                         <viewLayoutGuide key="safeArea" id="pJr-sz-jOe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Find Job" id="1hY-dU-LMQ">
+                        <barButtonItem key="leftBarButtonItem" title="You" id="rSr-Fr-af2">
+                            <connections>
+                                <action selector="ProfileButton:" destination="1Gw-aK-ERn" id="Mxk-Pj-Y3x"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Filter" id="8g2-jx-iJZ">
                                 <connections>
@@ -125,11 +130,23 @@
                         <outlet property="jobTableView" destination="k9O-aL-M4V" id="T0d-1Q-Tfg"/>
                         <outlet property="mapView" destination="vL5-Vh-M24" id="DuW-CS-ZXd"/>
                         <segue destination="Ran-ub-4xW" kind="show" identifier="showDetail" id="VVV-H7-b7R"/>
+                        <segue destination="7eI-0E-fdD" kind="show" identifier="SignupLogin" id="eVB-Kw-NA4"/>
+                        <segue destination="Lyc-e5-oOP" kind="show" identifier="Profile" id="gx3-7W-HGP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiM-ht-zqw" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1740.5797101449277" y="474.10714285714283"/>
+        </scene>
+        <!--SignupLogin-->
+        <scene sceneID="Zw5-sa-SqT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignupLogin" id="7eI-0E-fdD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="y2D-0g-vBg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGk-Ue-XK1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2670" y="623"/>
         </scene>
         <!--Details-->
         <scene sceneID="OLZ-dL-oaF">
@@ -279,7 +296,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDb-ZH-wNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jAa-zw-saa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2505.7971014492755" y="-19.419642857142858"/>
+            <point key="canvasLocation" x="2688" y="220"/>
         </scene>
         <!--About Job-->
         <scene sceneID="D9A-kM-vk1">
@@ -664,7 +681,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lti-LN-iLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3300" y="1264.3178410794603"/>
+            <point key="canvasLocation" x="3286" y="1264"/>
         </scene>
         <!--Find Job-->
         <scene sceneID="aTM-Yw-aIr">
@@ -706,7 +723,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7e-59-ZdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2508" y="1265"/>
+            <point key="canvasLocation" x="2172" y="1264"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="uZ4-Wf-8wv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="Lyc-e5-oOP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zb4-hd-nTv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EzY-Vi-N1m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2643" y="587"/>
         </scene>
     </scenes>
     <resources>
