@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJE-5q-v58">
-                                <rect key="frame" x="148" y="135" width="14" height="21"/>
+                                <rect key="frame" x="148" y="135" width="156" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -36,13 +36,14 @@
                         <viewLayoutGuide key="safeArea" id="x7s-Ct-ZQd"/>
                     </view>
                     <connections>
+                        <outlet property="hiLabel" destination="eJE-5q-v58" id="UvF-ef-raw"/>
                         <segue destination="INW-DZ-eI4" kind="unwind" identifier="unwindToJobScreen" unwindAction="unwindToJobScreen:" id="gy6-rp-ZoZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALb-Fx-n4l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="INW-DZ-eI4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="-71"/>
+            <point key="canvasLocation" x="-114.49275362318842" y="-71.651785714285708"/>
         </scene>
     </scenes>
 </document>

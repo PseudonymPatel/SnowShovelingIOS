@@ -233,6 +233,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D36C931221613ED100708ECF /* Build configuration list for PBXNativeTarget "SnowShoveling" */;
 			buildPhases = (
+				304A460224BE5CFB0058132E /* ERRORS and TODOs */,
 				B94AF4DF00CA47983435CF95 /* [CP] Check Pods Manifest.lock */,
 				D36C92FA21613ECC00708ECF /* Sources */,
 				D36C92FB21613ECC00708ECF /* Frameworks */,
@@ -303,6 +304,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		304A460224BE5CFB0058132E /* ERRORS and TODOs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "ERRORS and TODOs";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/bin/sh -e";
+			shellScript = "${SRCROOT}/SnowShoveling/checkForTodoAndErrorOnBuildScript\n";
+		};
 		5D74CBF5C00AC9784D2D0765 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

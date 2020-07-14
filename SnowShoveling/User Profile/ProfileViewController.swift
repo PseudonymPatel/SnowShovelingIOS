@@ -11,16 +11,38 @@ import FirebaseAuth
 
 class ProfileViewController:UIViewController {
 
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            //Make sure the user is logged in when they get here! This is only for logged in users
-            guard UserDefaults.standard.bool(forKey: "isLoggedIn") else {
-                print("How'd you get here!")
-                
-                return
-            }
+    @IBOutlet weak var hiLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Make sure the user is logged in when they get here! This is only for logged in users
+        guard UserDefaults.standard.bool(forKey: "isLoggedIn") else {
+            print("How'd you get here!")
+            //TODO: What do I do now?
+            return
         }
+    
+        let thisUserEncoded = UserDefaults.standard.data(forKey: "thisUser")
+        guard thisUserEncoded != nil else {
+            print("Logged in but no user!?")
+            //TODO: get the user here if needed, conver to if let
+            return
+        }
+        
+        let defaults = UserDefaults.standard
+
+        if let thisUserEncoded = defaults.data(forKey: "thisUser") {
+            if let decodedPeople = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(thisUserEncoded) as? User {
+                let thisUser = decodedPeople
+                hiLabel.text = "Hi, \(thisUser.name)!" //yes, this whole ordeal was for this one line of code. b u t, its a foundation for cooler stuff :|
+            } else {
+                print("who knows what happened, https://www.hackingwithswift.com/read/12/3/fixing-project-10-nscoding")
+            }
+        } else {
+            print("something went wrong, https://www.hackingwithswift.com/read/12/3/fixing-project-10-nscoding")
+        }
+    }
 
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
         if UserDefaults.standard.bool(forKey: "isLoggedIn") {

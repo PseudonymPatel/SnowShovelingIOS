@@ -8,7 +8,11 @@
 
 import UIKit
 
-class User {
+///This class stores information about users.
+///Do stuff
+///
+/// WARNING: profilePic and ratingArray is not stored when Coding and Decoding.
+class User: NSCoding {
     let uid:String
     let name:String
     let profilePic:UIImage
@@ -22,6 +26,25 @@ class User {
         self.profilePic = profilePic
         self.ratingAvg = ratingAvg
         self.phoneNumber = phoneNum
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.uid = aDecoder.decodeObject(forKey: "uid") as! String
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.profilePic = UIImage() //TODO: fix when fixable
+        self.ratingAvg = aDecoder.decodeObject(forKey: "ratingAvg") as! Double
+        self.phoneNumber = aDecoder.decodeObject(forKey: "phoneNumber") as! Int
+        self.ratingArray = Ratings() //TODO: fix when fixable
+    }
+        
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.uid, forKey: "uid")
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode("prof pic not impl", forKey: "profilePic")
+        aCoder.encode(self.ratingAvg, forKey: "ratingAvg")
+        aCoder.encode(self.phoneNumber, forKey: "phoneNumber")
+        
+        //TODO: encode ratings for user, but coding is only for current logged in user and we don't need ratings for self so /shrug
     }
 }
 
