@@ -82,7 +82,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
                 sender.isUserInteractionEnabled = false
                 sender.setAttributedTitle(NSAttributedString(string: "Job Taken"), for: .disabled)
                 
-                /// - TODO: In the future, move the user to the accepted jobs screen
+                // TODO: In the future, move the user to the accepted jobs screen
                 
                 //remove from the array of jobs
                 for i in 0..<FirebaseService.shared.jobArray.count {
@@ -102,9 +102,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "unwindToJobScreen" {
-			(segue.destination as! JobViewController).refreshTableData()
-		}
+//		if segue.identifier == "unwindToJobScreen" {
+//			(segue.destination as! JobViewController).refreshTableData()
+//		}
     }
 
 

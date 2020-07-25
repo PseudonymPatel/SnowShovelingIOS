@@ -16,13 +16,29 @@ class JobViewController: UIViewController {
 
        
 	@IBOutlet var mapView: MKMapView!
-	@IBOutlet var jobTableView: UITableView!
+	//@IBOutlet var jobTableView: UITableView!
+    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var addJobButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
     
-    var hasLoaded = false
+    //var hasLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //circlurize you button and filter button
+        addJobButton.layer.cornerRadius = 15
+        addJobButton.clipsToBounds = true
+        
+        menuButton.layer.cornerRadius = 15
+        menuButton.clipsToBounds = true
+        menuButton.layer.borderWidth = 3
+        profileButton.layer.cornerRadius = 15
+        profileButton.clipsToBounds = true
+        profileButton.layer.borderWidth = 3
+        
+        profileButton.layer.borderColor = UIColor(red: 123, green: 153, blue: 130, alpha: 1).cgColor
+        menuButton.layer.borderColor = UIColor(red: 123, green: 153, blue: 130, alpha: 1).cgColor
         //login not neccesary b/c user stays logged in.
 //        logIn: if UserDefaults.standard.bool(forKey: "isLoggedIn") {
 //            guard let email = KeychainWrapper.standard.string(forKey: "email"), let password = KeychainWrapper.standard.string(forKey: "password") else {
@@ -39,12 +55,10 @@ class JobViewController: UIViewController {
 //        }
 		
 		//these are in different file
-		jobTableView.dataSource = self
-		jobTableView.delegate = self
+//		jobTableView.dataSource = self
+//		jobTableView.delegate = self
 		
-        if FirebaseService.shared.jobArray.count == 0 {
-            reloadJobs()
-        }
+        reloadJobs()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +73,7 @@ class JobViewController: UIViewController {
         }
     }
     
-    @IBAction func ProfileButton(_ sender: UIBarButtonItem) {
+    @IBAction func ProfileButton(_ sender: UIButton) {
         if UserDefaults.standard.bool(forKey: "isLoggedIn") {
             self.performSegue(withIdentifier: "Profile", sender: nil)
         } else {
@@ -70,6 +84,14 @@ class JobViewController: UIViewController {
     @IBAction func unwindToJobScreen(_ unwindSegue: UIStoryboardSegue) {
         //let sourceViewController = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue
+    }
+    
+    private func reloadJobs() {
+        FirebaseService.shared.getAllJobs()
+        FirebaseService.shared.dispatchGroup.notify(queue: .main) {
+            self.reloadMap()
+            print("data loaded")
+        }
     }
     
 }

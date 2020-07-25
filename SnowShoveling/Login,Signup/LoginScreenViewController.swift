@@ -62,7 +62,6 @@ class LoginScreenViewController: UIViewController {
             FirebaseService.shared.getUser(forJob: nil, uid: user!.user.uid) { (thisUser) in
                 
                 //TODO: This doesn't work!
-                //ERROR: This doesn't work!
                 if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: thisUser, requiringSecureCoding: false) {
                     let defaults = UserDefaults.standard
                     defaults.set(savedData, forKey: "thisUser")
