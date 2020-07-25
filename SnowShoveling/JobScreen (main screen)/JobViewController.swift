@@ -28,13 +28,10 @@ class JobViewController: UIViewController {
         
         //circlurize you button and filter button
         addJobButton.layer.cornerRadius = 15
-        addJobButton.clipsToBounds = true
         
         menuButton.layer.cornerRadius = 15
-        menuButton.clipsToBounds = true
         menuButton.layer.borderWidth = 3
         profileButton.layer.cornerRadius = 15
-        profileButton.clipsToBounds = true
         profileButton.layer.borderWidth = 3
         
         profileButton.layer.borderColor = UIColor(red: 123, green: 153, blue: 130, alpha: 1).cgColor
