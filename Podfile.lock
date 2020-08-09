@@ -275,6 +275,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
+  - TextFieldEffects (1.6.0)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.12.0)
@@ -282,6 +283,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
+  - TextFieldEffects
 
 SPEC REPOS:
   trunk:
@@ -308,6 +310,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - TextFieldEffects
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -333,7 +336,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 28f1a6b6b01bd239c31b43194a1ddba622dcecbd
+PODFILE CHECKSUM: 4d56b309d63893b960ee9f5468cd410f7660b5b0
 
 COCOAPODS: 1.9.1

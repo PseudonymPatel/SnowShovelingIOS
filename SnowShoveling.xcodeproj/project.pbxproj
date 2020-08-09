@@ -233,8 +233,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D36C931221613ED100708ECF /* Build configuration list for PBXNativeTarget "SnowShoveling" */;
 			buildPhases = (
-				304A460224BE5CFB0058132E /* ERRORS and TODOs */,
 				B94AF4DF00CA47983435CF95 /* [CP] Check Pods Manifest.lock */,
+				304A460224BE5CFB0058132E /* ERRORS and TODOs */,
 				D36C92FA21613ECC00708ECF /* Sources */,
 				D36C92FB21613ECC00708ECF /* Frameworks */,
 				D36C92FC21613ECC00708ECF /* Resources */,

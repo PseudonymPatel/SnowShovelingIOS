@@ -17,7 +17,9 @@ class LoginScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         //No one:
         //Absolutely No one:
         //Runtime error: uNrECoGnIZeD ErrOR sENt tO InSTaNCe
@@ -61,17 +63,20 @@ class LoginScreenViewController: UIViewController {
             //get the user and set Userdefaults for me
             FirebaseService.shared.getUser(forJob: nil, uid: user!.user.uid) { (thisUser) in
                 
-                //TODO: This doesn't work!
-                if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: thisUser, requiringSecureCoding: false) {
-                    let defaults = UserDefaults.standard
-                    defaults.set(savedData, forKey: "thisUser")
-                }
+                let defaults = UserDefaults.standard
+                defaults.set(thisUser.name, forKey: "userName")
+                defaults.set(thisUser.phoneNumber, forKey: "userPhoneNumber")
+                defaults.set(thisUser.ratingAvg, forKey: "userRatingAvg")
             }
             
             KeychainWrapper.standard.set(email, forKey: "email")
             KeychainWrapper.standard.set(password, forKey:"password")
             self!.performSegue(withIdentifier: "unwindToJobScreen", sender: nil)
         }
+    }
+    
+    @IBAction func unwindToJobScreen(_ sender: UIButton) {
+        performSegue(withIdentifier: "unwindToJobScreen", sender: nil)
     }
     
     /*

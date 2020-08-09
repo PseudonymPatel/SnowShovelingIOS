@@ -72,6 +72,8 @@ class MoreSignupInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
         //round corners of button
         buttonButton.layer.cornerRadius = 10
         buttonButton.clipsToBounds = true

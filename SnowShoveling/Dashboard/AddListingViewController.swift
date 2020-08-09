@@ -18,6 +18,10 @@ class AddListingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //cancel button
+        let backItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
+        
         // Do any additional setup after loading the view.
     }
     

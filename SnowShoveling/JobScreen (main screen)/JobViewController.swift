@@ -26,6 +26,9 @@ class JobViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //remove the navigation bar for this un
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         //circlurize you button and filter button
         addJobButton.layer.cornerRadius = 15
         

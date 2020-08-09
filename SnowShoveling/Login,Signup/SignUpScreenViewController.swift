@@ -110,6 +110,8 @@ class SignUpScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
         //round corners of next button
         nextButton.layer.cornerRadius = 10
         nextButton.clipsToBounds = true
