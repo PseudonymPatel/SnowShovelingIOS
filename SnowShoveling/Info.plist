@@ -4,8 +4,10 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Hi! We need your location in order to present you with the best jobs possible.</string>
 	<key>CFBundleDisplayName</key>
-	<string>Snow Shoveling</string>
+	<string>Yardies</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

@@ -26,6 +26,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Tca-U6-FJc"/>
                                     <constraint firstAttribute="width" constant="50" id="cdH-Sj-ddU"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="You"/>
                                 <connections>
                                     <action selector="ProfileButton:" destination="1Gw-aK-ERn" eventType="touchUpInside" id="341-GY-1Po"/>
@@ -41,7 +42,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="plus" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="large" weight="regular"/>
                                 </state>
                                 <connections>
                                     <segue destination="syV-Ka-1Z4" kind="popoverPresentation" popoverAnchorView="5Yn-LZ-G2g" id="sVm-iu-aF1">
@@ -65,6 +66,21 @@
                                     <constraint firstAttribute="height" constant="50" id="c4I-oZ-MSS"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyR-0W-ukE">
+                                <rect key="frame" x="10" y="787" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.4823529412" green="0.59999999999999998" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4yE-L9-6hC"/>
+                                    <constraint firstAttribute="height" constant="50" id="ODM-PU-YjF"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="location" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                </state>
+                                <connections>
+                                    <action selector="centerLocationButton:" destination="1Gw-aK-ERn" eventType="touchUpInside" id="Hi9-Ue-FkZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -72,6 +88,7 @@
                             <constraint firstItem="vL5-Vh-M24" firstAttribute="top" secondItem="nud-VE-jYW" secondAttribute="top" id="4v5-p5-vH1"/>
                             <constraint firstItem="8LU-Lb-I3U" firstAttribute="leading" secondItem="nud-VE-jYW" secondAttribute="leading" constant="10" id="DWu-rd-Cqd"/>
                             <constraint firstItem="vL5-Vh-M24" firstAttribute="trailing" secondItem="pJr-sz-jOe" secondAttribute="trailing" id="GeY-9j-NWr"/>
+                            <constraint firstItem="pJr-sz-jOe" firstAttribute="bottom" secondItem="zyR-0W-ukE" secondAttribute="bottom" constant="25" id="OaP-jP-IyP"/>
                             <constraint firstItem="pJr-sz-jOe" firstAttribute="bottom" secondItem="5Yn-LZ-G2g" secondAttribute="bottom" constant="25" id="RWK-4A-SZ9"/>
                             <constraint firstItem="1Pb-95-ckW" firstAttribute="top" secondItem="pJr-sz-jOe" secondAttribute="top" constant="10" id="Uru-8N-fzT"/>
                             <constraint firstItem="pJr-sz-jOe" firstAttribute="trailing" secondItem="5Yn-LZ-G2g" secondAttribute="trailing" constant="25" id="YHI-TG-YQY"/>
@@ -80,13 +97,15 @@
                             <constraint firstItem="1Pb-95-ckW" firstAttribute="centerX" secondItem="nud-VE-jYW" secondAttribute="centerX" id="s95-eq-jL8"/>
                             <constraint firstItem="8LU-Lb-I3U" firstAttribute="top" secondItem="pJr-sz-jOe" secondAttribute="top" constant="10" id="vut-pM-HdA"/>
                             <constraint firstItem="abO-k5-oL7" firstAttribute="top" secondItem="pJr-sz-jOe" secondAttribute="top" constant="10" id="wkC-y2-J7I"/>
+                            <constraint firstItem="zyR-0W-ukE" firstAttribute="leading" secondItem="pJr-sz-jOe" secondAttribute="leading" constant="10" id="zqz-fj-Dur"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pJr-sz-jOe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Find Job" id="1hY-dU-LMQ"/>
                     <connections>
                         <outlet property="addJobButton" destination="5Yn-LZ-G2g" id="FgF-z8-NWI"/>
-                        <outlet property="mapView" destination="vL5-Vh-M24" id="DuW-CS-ZXd"/>
+                        <outlet property="centerLocationButton" destination="zyR-0W-ukE" id="gnp-Qd-E9p"/>
+                        <outlet property="mapView" destination="vL5-Vh-M24" id="EdN-2q-77v"/>
                         <outlet property="menuButton" destination="8LU-Lb-I3U" id="FIL-Ia-pGF"/>
                         <outlet property="profileButton" destination="abO-k5-oL7" id="SGw-jN-rHW"/>
                         <segue destination="Ran-ub-4xW" kind="show" identifier="showDetail" id="VVV-H7-b7R"/>
@@ -706,6 +725,7 @@
     </scenes>
     <resources>
         <image name="defaultProfilePic" width="454" height="454"/>
+        <image name="location" catalog="system" width="128" height="115"/>
         <image name="menuIcon" width="25" height="25"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="second" width="30" height="30"/>
